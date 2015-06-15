@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="DemoApplication.DeltaSigmaPi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DemoApplication"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.Column="1"   BorderBrush="Black" BorderThickness="0 0 0 1" />
+        <Button x:Name="bt_Back" Content="" FontFamily="Segoe UI Symbol" HorizontalAlignment="Left" Padding="0" Margin="10,10,0,5" VerticalAlignment="Stretch" Width="56" Click="bt_Back_Clicked" FontSize="42.667" BorderThickness="0" Background="#33FFFFFF" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <CompositeTransform Rotation="180"/>
+            </Button.RenderTransform>
+        </Button>
+        <TextBlock x:Name="title" HorizontalAlignment="Left" Margin="84,21,0,0" TextWrapping="Wrap" Text="Delta-Sigma Pi" VerticalAlignment="Top" FontSize="32" FontFamily="Segoe UI Light"/>
+        <Button x:Name="bt_Connect" Content="Connect             " HorizontalAlignment="Left" Margin="214,38,0,0" VerticalAlignment="Top" Click="bt_Connect_Click" Grid.Row="1" Height="32" Width="133" Background="#33FFFFFF" RequestedTheme="Light" BorderBrush="#FF434343"/>
+        <TextBox x:Name="txt_Address1" HorizontalAlignment="Left" Margin="132,17,0,0" TextWrapping="Wrap" Text="0x68" VerticalAlignment="Top" Grid.Row="1" Height="32" Width="64"/>
+        <TextBlock x:Name="textBlockaddress1" HorizontalAlignment="Left" Margin="28,23,0,0" TextWrapping="Wrap" Text="I2C Address 1" VerticalAlignment="Top" Grid.Row="1" Height="20" Width="100 "/>
+        <TextBox x:Name="txt_Address2" HorizontalAlignment="Left" Margin="132,60,0,0" TextWrapping="Wrap" Text="0x69" VerticalAlignment="Top" Grid.Row="1" Height="32" Width="64"/>
+        <TextBlock x:Name="textBlockaddress2" HorizontalAlignment="Left" Margin="28,66,0,0" TextWrapping="Wrap" Text="I2C Address 2" VerticalAlignment="Top" Grid.Row="1" Height="20" Width="100                                        "/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="28,125,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 1:" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <TextBlock x:Name="txt_Channel1" HorizontalAlignment="Left" Margin="138,125,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" FontSize="18.667" Width="209"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="28,155,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 2:" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <TextBlock x:Name="txt_Channel2" HorizontalAlignment="Left" Margin="138,155,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" FontSize="18.667" Width="209"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="28,185,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 3:" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <TextBlock x:Name="txt_Channel3" HorizontalAlignment="Left" Margin="138,185,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" FontSize="18.667" Width="209"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="28,215,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 4:" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <TextBlock x:Name="txt_Channel4" HorizontalAlignment="Left" Margin="138,215,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" FontSize="18.667" Width="209"/>
+        <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="28,245,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 5:" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <TextBlock x:Name="txt_Channel5" HorizontalAlignment="Left" Margin="138,245,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" FontSize="18.667" Width="209"/>
+        <TextBlock x:Name="textBlock64" HorizontalAlignment="Left" Margin="28,275,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 6:" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <TextBlock x:Name="txt_Channel6" HorizontalAlignment="Left" Margin="138,275,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" FontSize="18.667" Width="209"/>
+        <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" Margin="28,305,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 7:" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <TextBlock x:Name="txt_Channel7" HorizontalAlignment="Left" Margin="138,305,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" FontSize="18.667" Width="209"/>
+        <TextBlock x:Name="textBlock8" HorizontalAlignment="Left" Margin="28,335,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 8:" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <TextBlock x:Name="txt_Channel8" HorizontalAlignment="Left" Margin="138,335,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" FontSize="18.667" Width="209"/>
+
+        <TextBlock x:Name="textBlockbitrate" HorizontalAlignment="Left" Margin="296,130,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Bit Rate" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <RadioButton x:Name="radio_bitrate12" Content="12" HorizontalAlignment="Left" Margin="296,158,0,0" GroupName="radio_bitrate" Grid.Row="1" VerticalAlignment="Top" Click="radio_bitrate_clicked"/>
+        <RadioButton x:Name="radio_bitrate14" Content="14" HorizontalAlignment="Left" Margin="376,158,0,0" GroupName="radio_bitrate" Grid.Row="1" VerticalAlignment="Top" Click="radio_bitrate_clicked"/>
+        <RadioButton x:Name="radio_bitrate16" Content="16" HorizontalAlignment="Left" Margin="456,158,0,0" GroupName="radio_bitrate" Grid.Row="1" VerticalAlignment="Top" Click="radio_bitrate_clicked"/>
+        <RadioButton x:Name="radio_bitrate18" Content="18" HorizontalAlignment="Left" Margin="546,158,0,0" GroupName="radio_bitrate" Grid.Row="1" VerticalAlignment="Top" Click="radio_bitrate_clicked"/>
+
+        <TextBlock x:Name="textBlockgain" HorizontalAlignment="Left" Margin="296,220,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Gain" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold"/>
+        <RadioButton x:Name="radio_Gain1" Content="1" HorizontalAlignment="Left" Margin="296,248,0,0" GroupName="radio_gain" Grid.Row="1" VerticalAlignment="Top" Click="radio_gain_clicked"/>
+        <RadioButton x:Name="radio_Gain2" Content="2" HorizontalAlignment="Left" Margin="376,248,0,0" GroupName="radio_gain" Grid.Row="1" VerticalAlignment="Top" Click="radio_gain_clicked"/>
+        <RadioButton x:Name="radio_Gain4" Content="4" HorizontalAlignment="Left" Margin="456,248,0,0" GroupName="radio_gain" Grid.Row="1" VerticalAlignment="Top" Click="radio_gain_clicked"/>
+        <RadioButton x:Name="radio_Gain8" Content="8" HorizontalAlignment="Left" Margin="546,248,0,0" GroupName="radio_gain" Grid.Row="1" VerticalAlignment="Top" Click="radio_gain_clicked"/>
+        <TextBlock x:Name="textBlockwarning" HorizontalAlignment="Left" Margin="352,220,0,0" Grid.Row="1" TextWrapping="Wrap" Text="(input voltage x gain) should not exceed 5V" VerticalAlignment="Top" FontSize="18.667" Foreground="Red"/>
+        <TextBlock x:Name="txt_Message" HorizontalAlignment="Left" Margin="28,388,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="635" FontSize="21.333" Grid.Row="1" Height="28"/>
+        <Button x:Name="bt_Start" Content="Start Reading" HorizontalAlignment="Left" Margin="404,38,0,0" VerticalAlignment="Top" Click="bt_Start_Click" Grid.Row="1" Height="32" Width="133" Background="#33FFFFFF" RequestedTheme="Light" BorderBrush="#FF434343"/>
+        <Button x:Name="bt_Stop" Content="Stop Reading" HorizontalAlignment="Left" Margin="554,38,0,0" VerticalAlignment="Top" Click="bt_Stop_Click" Grid.Row="1" Height="32" Width="133" Background="#33FFFFFF" RequestedTheme="Light" BorderBrush="#FF434343"/>
+    </Grid>
+</Page>

@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="DemoApplication.RTCPi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DemoApplication"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.Column="1"   BorderBrush="Black" BorderThickness="0 0 0 1" />
+        <Button x:Name="bt_Back" Content="" FontFamily="Segoe UI Symbol" HorizontalAlignment="Left" Padding="0" Margin="10,10,0,0" VerticalAlignment="Top" Height="65" Width="56" Click="bt_Back_Clicked" FontSize="42.667" BorderThickness="0" Background="#33FFFFFF" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <CompositeTransform Rotation="180"/>
+            </Button.RenderTransform>
+        </Button>
+        <TextBlock x:Name="title" HorizontalAlignment="Left" Margin="84,21,0,0" TextWrapping="Wrap" Text="RTC Pi" VerticalAlignment="Top" FontSize="32" FontFamily="Segoe UI Light"/>
+        <Button x:Name="bt_Connect" Content="Connect             " HorizontalAlignment="Left" Margin="38,35,0,0" VerticalAlignment="Top" Click="bt_Connect_Click" Grid.Row="1" Height="32" Width="133" Background="#33FFFFFF" RequestedTheme="Light" BorderBrush="#FF434343"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="38,102,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Date:" VerticalAlignment="Top" FontSize="32"/>
+        <TextBlock x:Name="txt_Date" HorizontalAlignment="Left" Margin="159,102,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="32"/>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="38,191,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Set Date:" VerticalAlignment="Top" FontSize="24"/>
+        <Button x:Name="bt_SetDate" Content="Set" HorizontalAlignment="Left" Margin="762,191,0,0" VerticalAlignment="Top" Click="bt_SetDate_Click" Grid.Row="1" Height="32" Width="133" Background="#33FFFFFF" RequestedTheme="Light" BorderBrush="#FF434343"/>
+        <TextBlock x:Name="txt_Message" HorizontalAlignment="Left" Margin="38,339,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="462" FontSize="21.333" Grid.Row="1" Height="28"/>
+        <DatePicker x:Name="picker_NewDate" HorizontalAlignment="Left" Margin="167,191,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <TimePicker x:Name="picker_NewTime" HorizontalAlignment="Left" Margin="493,191,0,0" Grid.Row="1" VerticalAlignment="Top" ClockIdentifier="12HourClock"/>
+        <CheckBox x:Name="cb_sqw" Content="SQW Clock Output" HorizontalAlignment="Left" Margin="39,271,0,0" Grid.Row="1" VerticalAlignment="Top" Click="cb_sqw_clicked"/>
+        <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="251,277,0,0" Grid.Row="1" TextWrapping="Wrap" Text="SQW Frequency:" VerticalAlignment="Top" FontSize="18
+                   "/>
+        <RadioButton x:Name="radio_frequency1" Content="1Hz" HorizontalAlignment="Left" Margin="411,275,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="radio_frequency" Checked="radio_frequency_clicked" IsChecked="True"/>
+        <RadioButton x:Name="radio_frequency2" Content="4.096KHz" HorizontalAlignment="Left" Margin="492,275,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="radio_frequency" Checked="radio_frequency_clicked"/>
+        <RadioButton x:Name="radio_frequency3" Content="8.192KHz" HorizontalAlignment="Left" Margin="601,275,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="radio_frequency" Checked="radio_frequency_clicked"/>
+        <RadioButton x:Name="radio_frequency4" Content="32.768KHz" HorizontalAlignment="Left" Margin="725,275,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="radio_frequency" Checked="radio_frequency_clicked"/>
+    </Grid>
+</Page>
