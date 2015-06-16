@@ -77,6 +77,42 @@ namespace DemoApplication
             }
         }
 
+        private void cbServoControl_Click(object sender, RoutedEventArgs e)
+        {
+            // create an array containing all of the channel sliders
+            Slider[] sliders = { slider_Channel1, slider_Channel2, slider_Channel3, slider_Channel4, slider_Channel5, slider_Channel6, slider_Channel7, slider_Channel8, slider_Channel9, slider_Channel10, slider_Channel11, slider_Channel12, slider_Channel13, slider_Channel14, slider_Channel15, slider_Channel16 };
+
+            // check to see if the checkbox is checked
+            if (cbServoControl.IsChecked == true)
+            {
+                // set the frequency to 60Hz and the slider limits to be 150 to 700
+                // these values should allow the Servo Pi to control most RC model servos.
+                slider_Frequency.Value = 60;
+                servo.SetPWMFreqency(60);
+
+                // loop through all of the sliders setting their value, minimum and maximum
+                foreach (Slider slider in sliders)
+                {
+                    slider.Value = 425;
+                    slider.Minimum = 150;
+                    slider.Maximum = 700;
+                }
+                             
+
+            }
+            else
+            {
+                // reset the sliders to the default limits
+                foreach (Slider slider in sliders)
+                {
+                    slider.Value = 0;
+                    slider.Minimum = 0;
+                    slider.Maximum = 4096;
+                }
+            }
+
+        }
+
         private async void WriteMessage(string message)
         {
             // used to update the message textbox on the page
@@ -97,5 +133,7 @@ namespace DemoApplication
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(MainPage));
         }
+
+        
     }
 }
