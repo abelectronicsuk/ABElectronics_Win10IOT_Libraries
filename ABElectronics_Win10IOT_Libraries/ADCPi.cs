@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Windows.Devices.Enumeration;
 using Windows.Devices.I2c;
@@ -449,7 +449,7 @@ namespace ABElectronics_Win10IOT_Libraries
         /// <summary>
         /// Dispose of the ADCPi instance.
         /// </summary>
-        private void Dispose()
+        public void Dispose()
         {
             i2cbus1.Dispose();
             i2cbus2.Dispose();
