@@ -1,7 +1,7 @@
-AB Electronics Windows 10 IOT Libraries and Demos
+AB Electronics UK Windows 10 IOT Libraries and Demos
 =====
 
-Windows 10 IOT Library to work with Raspberry Pi expansion boards from http://www.abelectronics.co.uk
+Windows 10 IOT Library to work with Raspberry Pi expansion boards from https://www.abelectronics.co.uk
 
 Installation instructions for the Windows 10 IOT release are available on https://ms-iot.github.io/content/en-US/GetStarted.htm
 
@@ -12,20 +12,22 @@ The AB Electronics Windows 10 IOT Library in the ABElectronics_Win10IOT_Librarie
 ### ADC-DAC Pi ###
 https://www.abelectronics.co.uk/products/3/Raspberry-Pi/39/ADC-DAC-Pi-Raspberry-Pi-ADC-and-DAC-expansion-board
 
-### ADC Pi and ADC Pi Plus ###
-https://www.abelectronics.co.uk/products/3/Raspberry-Pi-Model-A-and-B/17/ADC-Pi-V2---Raspberry-Pi-Analogue-to-Digital-converter and https://www.abelectronics.co.uk/products/17/Raspberry-Pi--Raspberry-Pi-2-Model-B/56/ADC-Pi-Plus---Raspberry-Pi-Analogue-to-Digital-converter
+### ADC Pi, ADC Pi Zero and ADC Pi Plus ###
+https://www.abelectronics.co.uk/p/69/ADC-Pi-Zero-Raspberry-Pi-Analogue-to-Digital-converter and https://www.abelectronics.co.uk/p/56/ADC-Pi-Plus-Raspberry-Pi-Analogue-to-Digital-converter
 
-### Delta Sigma Pi ###
-https://www.abelectronics.co.uk/products/3/Raspberry-Pi-Model-A-and-B/14/Delta-Sigma-Pi
+### Delta Sigma Pi and ADC Differential Pi ###
+https://www.abelectronics.co.uk/p/65/ADC-Differential-Pi-Raspberry-Pi-Analogue-to-Digital-converter
 
-### IO Pi and IO Pi Plus ###
-https://www.abelectronics.co.uk/products/3/Raspberry-Pi-Model-A-and-B/18/IO-Pi and https://www.abelectronics.co.uk/products/17/Raspberry-Pi--Raspberry-Pi-2-Model-B/54/IO-Pi-Plus
+### IO Pi, IO Pi Zero and IO Pi Plus ###
+https://www.abelectronics.co.uk/p/71/IO-Pi-Zero and https://www.abelectronics.co.uk/p/54/IO-Pi-Plus
 
-### RTC Pi and RTC Pi Plus ###
-https://www.abelectronics.co.uk/products/3/Raspberry-Pi-Model-A-and-B/15/RTC-Pi and https://www.abelectronics.co.uk/products/17/Raspberry-Pi--Raspberry-Pi-2-Model-B/52/RTC-Pi-Plus
+### RTC Pi, RTC Pi Zero and RTC Pi Plus ###
+https://www.abelectronics.co.uk/p/15/RTC-Pi 
+https://www.abelectronics.co.uk/p/70/RTC-Pi-Zero
+https://www.abelectronics.co.uk/p/52/RTC-Pi-Plus
 
-### Servo Pi ###
-https://www.abelectronics.co.uk/products/3/Raspberry-Pi-Model-A-and-B/44/Servo-Pi
+### Servo Pi and Servo Pi Zero ###
+https://www.abelectronics.co.uk/p/44/Servo-PWM-Pi and https://www.abelectronics.co.uk/p/72/Servo-PWM-Pi-Zero
 
 ## Demo and Test Applications ##
 
