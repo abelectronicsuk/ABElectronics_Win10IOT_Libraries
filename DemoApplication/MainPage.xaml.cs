@@ -39,9 +39,9 @@ namespace DemoApplication
             rootFrame.Navigate(typeof(ADCPi));
         }
 
-        private void delta_Click(object sender, RoutedEventArgs e)
+        private void adcdifferentialpi_Click(object sender, RoutedEventArgs e)
         {
-            rootFrame.Navigate(typeof(DeltaSigmaPi));
+            rootFrame.Navigate(typeof(ADCDifferentialPi));
         }
 
         private void rtc_Click(object sender, RoutedEventArgs e)

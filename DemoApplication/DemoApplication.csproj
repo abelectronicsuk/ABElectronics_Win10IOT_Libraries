@@ -101,8 +101,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DeltaSigmaPi.xaml.cs">
-      <DependentUpon>DeltaSigmaPi.xaml</DependentUpon>
+    <Compile Include="ADCDifferentialPi.xaml.cs">
+      <DependentUpon>ADCDifferentialPi.xaml</DependentUpon>
     </Compile>
     <Compile Include="IOPi.xaml.cs">
       <DependentUpon>IOPi.xaml</DependentUpon>
@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\adcdacpi.png" />
+    <Content Include="Assets\adcdifferentialpi.png" />
     <Content Include="Assets\adcpiplus.png" />
     <Content Include="Assets\deltasigmapi.png" />
     <Content Include="Assets\iopiplus.png" />
@@ -152,7 +153,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DeltaSigmaPi.xaml">
+    <Page Include="ADCDifferentialPi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

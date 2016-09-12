@@ -1,0 +1,88 @@
+﻿<Page
+    x:Class="DemoApplication_VB.IOPi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DemoApplication_VB"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.Column="1"   BorderBrush="Black" BorderThickness="0 0 0 1" />
+
+        <CheckBox x:Name="Bus2_Channel_01_checkBox" Content="1" HorizontalAlignment="Left" Margin="53,126,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_02_checkBox" Content="2" HorizontalAlignment="Left" Margin="53,158,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_03_checkBox" Content="3" HorizontalAlignment="Left" Margin="53,190,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_04_checkBox" Content="4" HorizontalAlignment="Left" Margin="53,222,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_05_checkBox" Content="5" HorizontalAlignment="Left" Margin="53,254,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_06_checkBox" Content="6" HorizontalAlignment="Left" Margin="53,286,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_07_checkBox" Content="7" HorizontalAlignment="Left" Margin="53,318,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_08_checkBox" Content="8" HorizontalAlignment="Left" Margin="53,350,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_16_checkBox" Content="16" HorizontalAlignment="Left" Margin="185,126,0,0" VerticalAlignment="Top" Width="120" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_15_checkBox" Content="15" HorizontalAlignment="Left" Margin="185,158,0,0" VerticalAlignment="Top" Width="120" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_14_checkBox" Content="14" HorizontalAlignment="Left" Margin="185,190,0,0" VerticalAlignment="Top" Width="120" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_13_checkBox" Content="13" HorizontalAlignment="Left" Margin="185,222,0,0" VerticalAlignment="Top" Width="120" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_12_checkBox" Content="12" HorizontalAlignment="Left" Margin="185,254,0,0" VerticalAlignment="Top" Width="120" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_11_checkBox" Content="11" HorizontalAlignment="Left" Margin="185,286,0,0" VerticalAlignment="Top" Width="120" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_10_checkBox" Content="10" HorizontalAlignment="Left" Margin="185,318,0,0" VerticalAlignment="Top" Width="120" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus2_Channel_09_checkBox" Content="9" HorizontalAlignment="Left" Margin="185,350,0,0" VerticalAlignment="Top" Width="120" Click="Bus2_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_Bus2_Port_0" Content="Port 0" HorizontalAlignment="Left" Margin="53,66,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus2_EnablePort0" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_Bus2_Port_1" Content="Port 1" HorizontalAlignment="Left" Margin="185,66,0,0" VerticalAlignment="Top" Width="120" Click="Bus2_EnablePort1" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_01_checkBox" Content="1" HorizontalAlignment="Left" Margin="398,350,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus1_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_02_checkBox" Content="2" HorizontalAlignment="Left" Margin="398,318,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus1_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_03_checkBox" Content="3" HorizontalAlignment="Left" Margin="398,286,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus1_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_04_checkBox" Content="4" HorizontalAlignment="Left" Margin="398,254,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus1_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_05_checkBox" Content="5" HorizontalAlignment="Left" Margin="398,222,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus1_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_06_checkBox" Content="6" HorizontalAlignment="Left" Margin="398,190,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus1_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_07_checkBox" Content="7" HorizontalAlignment="Left" Margin="398,158,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus1_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_08_checkBox" Content="8" HorizontalAlignment="Left" Margin="398,126,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus1_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_16_checkBox" Content="16" HorizontalAlignment="Left" Margin="530,350,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_15_checkBox" Content="15" HorizontalAlignment="Left" Margin="530,318,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_14_checkBox" Content="14" HorizontalAlignment="Left" Margin="530,286,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_13_checkBox" Content="13" HorizontalAlignment="Left" Margin="530,254,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_12_checkBox" Content="12" HorizontalAlignment="Left" Margin="530,222,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_11_checkBox" Content="11" HorizontalAlignment="Left" Margin="530,190,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_10_checkBox" Content="10" HorizontalAlignment="Left" Margin="530,158,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="Bus1_Channel_09_checkBox" Content="9" HorizontalAlignment="Left" Margin="530,126,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_Bus1_Port_0" Content="Port 0" HorizontalAlignment="Left" Margin="398,66,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="Bus1_EnablePort0" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_Bus1_Port_1" Content="Port 1" HorizontalAlignment="Left" Margin="530,66,0,0" VerticalAlignment="Top" Width="120" Click="Bus1_EnablePort1" Grid.Row="1" Height="32"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="240.641,227,0,0" TextWrapping="Wrap" Text="Bus 2" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="26.667" UseLayoutRounding="False" d:LayoutRounding="Auto" Grid.Row="1" Height="35.469" Width="63.373">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="90"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="406.308,227,0,0" TextWrapping="Wrap" Text="Bus 1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="26.667" UseLayoutRounding="False" d:LayoutRounding="Auto" Grid.Row="1" Height="35.469" Width="63.373">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="-90"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Button x:Name="bt_Bus2_Connect" Content="Connect to Bus 2
+                " HorizontalAlignment="Left" Margin="185,17,0,0" VerticalAlignment="Top" Click="bt_Bus2_Connect_Click" Grid.Row="1" Height="32" Width="133"/>
+        <TextBox x:Name="txt_Bus2_Address" HorizontalAlignment="Left" Margin="113,17,0,0" TextWrapping="Wrap" Text="0x21" VerticalAlignment="Top" Grid.Row="1" Height="32" Width="64"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="28,23,0,0" TextWrapping="Wrap" Text="I2C Address" VerticalAlignment="Top" Grid.Row="1" Height="20" Width="79"/>
+        <Button x:Name="bt_Bus1_Connect" Content="Connect to Bus 1                " HorizontalAlignment="Left" Margin="529,17,0,0" VerticalAlignment="Top" Click="bt_Bus1_Connect_Click" Grid.Row="1" Height="32" Width="133"/>
+        <TextBox x:Name="txt_Bus1_Address" HorizontalAlignment="Left" Margin="457,17,0,0" TextWrapping="Wrap" Text="0x20" VerticalAlignment="Top" Grid.Row="1" Height="32" Width="64"/>
+        <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="372,23,0,0" TextWrapping="Wrap" Text="I2C Address" VerticalAlignment="Top" Grid.Row="1" Height="20" Width="79"/>
+        <RadioButton x:Name="radio_Bus2_Read" Content="Read" HorizontalAlignment="Left" Margin="101,402,0,0" VerticalAlignment="Top" Width="120" GroupName="Bus2Direction" Checked="Bus2_SetDirection" Grid.Row="1" Height="32"/>
+        <RadioButton x:Name="radio_Bus2_Write" Content="Write" HorizontalAlignment="Left" Margin="200,402,0,0" VerticalAlignment="Top" Width="120" GroupName="Bus2Direction" Checked="Bus2_SetDirection" Grid.Row="1" Height="32"/>
+        <RadioButton x:Name="radio_Bus1_Read" Content="Read" HorizontalAlignment="Left" Margin="444,402,0,0" VerticalAlignment="Top" Width="120" GroupName="Bus1Direction" Checked="Bus1_SetDirection" Grid.Row="1" Height="32"/>
+        <RadioButton x:Name="radio_Bus1_Write" Content="Write" HorizontalAlignment="Left" Margin="543,402,0,0" VerticalAlignment="Top" Width="120" GroupName="Bus1Direction" Checked="Bus1_SetDirection" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_Bus2_Pullups" Content="Enable Pullup Resistors
+                  " HorizontalAlignment="Left" Margin="153,445,0,0" VerticalAlignment="Top" Width="220" Checked="Bus2_EnablePullups" Click="Bus2_EnablePullups" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_Bus2_InvertPort" Content="Invert Port" HorizontalAlignment="Left" Margin="153,479,0,0" VerticalAlignment="Top" Width="120" Checked="Bus2_InvertPort" Click="Bus2_InvertPort" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_Bus1_Pullups" Content="Enable Pullup Resistors                   " HorizontalAlignment="Left" Margin="500,445,0,0" VerticalAlignment="Top" Width="220" Checked="Bus1_EnablePullups" Click="Bus1_EnablePullups" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_Bus1_InvertPort" Content="Invert Port" HorizontalAlignment="Left" Margin="500,479,0,0" VerticalAlignment="Top" Width="120" Click="Bus1_InvertPort" Grid.Row="1" Height="32"/>
+        <TextBlock x:Name="txt_Message" HorizontalAlignment="Left" Margin="28,532,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="635" FontSize="21.333" Grid.Row="1" Height="28"/>
+
+        <Button x:Name="bt_Back" Content="" FontFamily="Segoe UI Symbol" HorizontalAlignment="Left" Padding="0" Margin="10,10,0,0" VerticalAlignment="Top" Height="65" Width="56" Click="bt_Back_Clicked" FontSize="42.667" BorderThickness="0" Background="#33FFFFFF" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <CompositeTransform Rotation="180"/>
+            </Button.RenderTransform>
+        </Button>
+        <TextBlock x:Name="title" HorizontalAlignment="Left" Margin="84,21,0,0" TextWrapping="Wrap" Text="IO Pi" VerticalAlignment="Top" FontSize="32" FontFamily="Segoe UI Light"/>
+    </Grid>
+</Page>

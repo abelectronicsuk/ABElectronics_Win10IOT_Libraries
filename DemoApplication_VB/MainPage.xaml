@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="DemoApplication_VB.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DemoApplication_VB"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Width="1280" Height="720">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.Resources>
+            <ImageBrush x:Key="ADCPiImageBrush" ImageSource="Assets/adcpiplus.png" Stretch="UniformToFill"/>
+            <ImageBrush x:Key="ADCDACPiImageBrush" ImageSource="Assets/adcdacpi.png" Stretch="UniformToFill"/>
+            <ImageBrush x:Key="ADCDifferentialPiImageBrush" ImageSource="Assets/adcdifferentialpi.png" Stretch="UniformToFill"/>
+            <ImageBrush x:Key="IOPiImageBrush" ImageSource="Assets/iopiplus.png" Stretch="UniformToFill"/>
+            <ImageBrush x:Key="RTCPiImageBrush" ImageSource="Assets/rtcpiplus.png" Stretch="UniformToFill"/>
+            <ImageBrush x:Key="ServoPiImageBrush" ImageSource="Assets/servopi.png" Stretch="UniformToFill"/>
+        </Grid.Resources>
+        <Button x:Name="bt_iopi"  Background="{StaticResource IOPiImageBrush}" HorizontalAlignment="Left" Margin="60,380,0,0" VerticalAlignment="Top" Height="200" Width="200" Click="iopi_Click" />
+        <Button x:Name="bt_adcpi"  Background="{StaticResource ADCPiImageBrush}" HorizontalAlignment="Left" Margin="60,104,0,0" VerticalAlignment="Top" Height="200" Width="200" Click="adc_Click"/>
+        <Button x:Name="bt_adcdifferentialpi"  Background="{StaticResource ADCDifferentialPiImageBrush}" HorizontalAlignment="Left" Margin="632,104,0,0" VerticalAlignment="Top" Height="200" Width="200"  Click="adcdifferentialpi_Click"/>
+        <Button x:Name="bt_rtcpi"  Background="{StaticResource RTCPiImageBrush}" HorizontalAlignment="Left" Margin="339,380,0,0" VerticalAlignment="Top" Height="200" Width="200" Click="rtc_Click"/>
+        <Button x:Name="bt_adcdacpi"  Background="{StaticResource ADCDACPiImageBrush}" HorizontalAlignment="Left" Margin="339,104,0,0" VerticalAlignment="Top" Height="200" Width="200" Click="adcdac_Click"/>
+        <Button x:Name="bt_servopi"  Background="{StaticResource ServoPiImageBrush}" HorizontalAlignment="Left" Margin="632,380,0,0" VerticalAlignment="Top" Height="200" Width="200" Click="servo_Click"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="83,585,0,0" TextWrapping="Wrap" Text="IO Pi / IO Pi Plus" VerticalAlignment="Top" FontSize="21.333"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="359,585,0,0" TextWrapping="Wrap" Text="RTC Pi / RTC Pi Plus" VerticalAlignment="Top" FontSize="21.333"/>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="690,585,0,0" TextWrapping="Wrap" Text="Servo Pi / Sero Pi Zero" VerticalAlignment="Top" FontSize="21.333"/>
+        <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="66,309,0,0" TextWrapping="Wrap" Text="ADC Pi / ADC Pi Plus" VerticalAlignment="Top" FontSize="21.333"/>
+        <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="397,309,0,0" TextWrapping="Wrap" Text="ADCDAC Pi Zero" VerticalAlignment="Top" FontSize="21.333"/>
+        <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="666,309,0,0" TextWrapping="Wrap" Text="ADC Differential Pi / Delta-Sigma Pi" VerticalAlignment="Top" FontSize="21.333"/>
+        <TextBlock x:Name="textBlock_Copy5" HorizontalAlignment="Left" Margin="60,50,0,0" TextWrapping="Wrap" Text="Select your Raspberry Pi expansion board" VerticalAlignment="Top" FontSize="28"/>
+    </Grid>
+</Page>
