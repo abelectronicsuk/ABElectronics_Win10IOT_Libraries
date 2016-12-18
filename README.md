@@ -9,6 +9,8 @@ We have GitHub pages for this library and demos at http://abelectronicsuk.github
 
 The AB Electronics Windows 10 IOT Library in the ABElectronics_Win10IOT_Libraries directory contains classes for the following Raspberry Pi expansion boards:
 
+This library is not compatible with the direct memory mapped driver (DMAP).
+
 ### ADC-DAC Pi ###
 https://www.abelectronics.co.uk/products/3/Raspberry-Pi/39/ADC-DAC-Pi-Raspberry-Pi-ADC-and-DAC-expansion-board
 
