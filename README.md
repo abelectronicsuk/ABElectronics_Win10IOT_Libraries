@@ -7,6 +7,8 @@ Installation instructions for the Windows 10 IOT release are available on https:
 
 We have GitHub pages for this library and demos at http://abelectronicsuk.github.io/ABElectronics_Win10IOT_Libraries/
 
+The library is available from NuGet.  Enter "Install-Package ABElectronics_Win10IOT_Libraries" in the Package Manager Console to download.
+
 The AB Electronics Windows 10 IOT Library in the ABElectronics_Win10IOT_Libraries directory contains classes for the following Raspberry Pi expansion boards:
 
 This library is not compatible with the direct memory mapped driver (DMAP).
