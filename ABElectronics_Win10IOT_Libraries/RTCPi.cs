@@ -10,7 +10,7 @@ namespace ABElectronics_Win10IOT_Libraries
 	///     Class for controlling the RTC Pi and RTC Pi Plus expansion boards from AB Electronics UK
 	///     Based on the DS1307 real-time clock from Maxim.
 	/// </summary>
-	public class RTCPi
+	public class RTCPi : IDisposable
 	{
 		// Register addresses for the DS1307 IC
 		private const byte SECONDS = 0x00;
@@ -53,7 +53,10 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <returns></returns>
 		public async Task Connect()
 		{
-			IsConnected = false;
+			if (IsConnected)
+			{
+				return; // Already connected
+			}
 
 			if (!ApiInformation.IsTypePresent("Windows.Devices.I2c.I2cDevice"))
 			{
@@ -123,6 +126,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="date">DateTime</param>
 		public void SetDate(DateTime date)
 		{
+			CheckConnected();
+
 			helper.WriteI2CByte(i2cbus, SECONDS, BytetoBCD(date.Second));
 			helper.WriteI2CByte(i2cbus, MINUTES, BytetoBCD(date.Minute));
 			helper.WriteI2CByte(i2cbus, HOURS, BytetoBCD(date.Hour));
@@ -138,6 +143,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <returns>DateTime</returns>
 		public DateTime ReadDate()
 		{
+			CheckConnected();
+
 			var DateArray = helper.ReadI2CBlockData(i2cbus, 0, 7);
 			var year = BCDtoInt(DateArray[6]) + century;
 			var month = BCDtoInt(DateArray[5]);
@@ -164,6 +171,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// </summary>
 		public void EnableOutput()
 		{
+			CheckConnected();
+
 			config = helper.UpdateByte(config, 7, true);
 			config = helper.UpdateByte(config, 4, true);
 			helper.WriteI2CByte(i2cbus, CONTROL, config);
@@ -174,6 +183,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// </summary>
 		public void DisableOutput()
 		{
+			CheckConnected();
+
 			config = helper.UpdateByte(config, 7, false);
 			config = helper.UpdateByte(config, 4, false);
 			helper.WriteI2CByte(i2cbus, CONTROL, config);
@@ -185,6 +196,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="frequency">options are: 1 = 1Hz, 2 = 4.096KHz, 3 = 8.192KHz, 4 = 32.768KHz</param>
 		public void SetFrequency(byte frequency)
 		{
+			CheckConnected();
+
 			switch (frequency)
 			{
 				case 1:
@@ -204,9 +217,17 @@ namespace ABElectronics_Win10IOT_Libraries
 					config = helper.UpdateByte(config, 1, true);
 					break;
 				default:
-					throw new ArgumentOutOfRangeException();
+					throw new ArgumentOutOfRangeException(nameof(frequency));
 			}
 			helper.WriteI2CByte(i2cbus, CONTROL, config);
+		}
+
+		private void CheckConnected()
+		{
+			if (!IsConnected)
+			{
+				throw new InvalidOperationException("Not connected. You must call .Connect() first.");
+			}
 		}
 
 		/// <summary>
@@ -214,8 +235,10 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// </summary>
 		public void Dispose()
 		{
+			i2cbus?.Dispose();
+			i2cbus = null;
+
 			IsConnected = false;
-			i2cbus.Dispose();
 		}
 	}
 }

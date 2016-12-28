@@ -41,12 +41,13 @@ namespace ABElectronics_Win10IOT_Libraries
 		///     Create an instance of a Servo Pi bus.
 		/// </summary>
 		/// <param name="address">I2C address of Servo Pi bus</param>
+		/// <param name="outputEnablePin">GPIO pin for Output Enable function (0-disabled)</param>
 		/// <example>ABElectronics_Win10IOT_Libraries.ServoPi servo = new ABElectronics_Win10IOT_Libraries.ServoPi();</example>
-		public ServoPi(byte address = 0x40)
+		public ServoPi(byte address = 0x40, byte outputEnablePin = 0)
 		{
 			Address = address;
 			IsConnected = false;
-			OutputEnablePin = 0;
+			OutputEnablePin = outputEnablePin;
 		}
 
 
@@ -77,7 +78,10 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <example>servopi.Connect();</example>
 		public async Task Connect()
 		{
-			IsConnected = false;
+			if (IsConnected)
+			{
+				return; // Already connected
+			}
 
 			if (!ApiInformation.IsTypePresent("Windows.Devices.I2c.I2cDevice"))
 			{
@@ -204,14 +208,12 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <example>servopi.OutputDisable();</example>
 		public void OutputDisable()
 		{
-			if (pin != null)
+			if (pin == null)
 			{
-				pin.Write(GpioPinValue.High);
+				throw new InvalidOperationException("OutputEnablePin was not set for the .Connect().");
 			}
-			else
-			{
-				throw new NotSupportedException();
-			}
+
+			pin.Write(GpioPinValue.High);
 		}
 
 		/// <summary>
@@ -220,13 +222,19 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <example>servopi.OutputEnable();</example>
 		public void OutputEnable()
 		{
-			if (pin != null)
+			if (pin == null)
 			{
-				pin.Write(GpioPinValue.Low);
+				throw new InvalidOperationException("OutputEnablePin was not set for the .Connect().");
 			}
-			else
+
+			pin.Write(GpioPinValue.Low);
+		}
+
+		private void CheckConnected()
+		{
+			if (!IsConnected)
 			{
-				throw new NotSupportedException();
+				throw new InvalidOperationException("Not connected. You must call .Connect() first.");
 			}
 		}
 

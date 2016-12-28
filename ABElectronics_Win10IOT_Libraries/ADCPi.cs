@@ -64,7 +64,10 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// </summary>
 		public async Task Connect()
 		{
-			IsConnected = false;
+			if (IsConnected)
+			{
+				return; // Already connected
+			}
 
 			if (!ApiInformation.IsTypePresent("Windows.Devices.I2c.I2cDevice"))
 			{
@@ -198,6 +201,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <returns>raw integer value from ADC buffer</returns>
 		public int ReadRaw(byte channel)
 		{
+			CheckConnected();
+
 			// variables for storing the raw bytes from the ADC
 			byte h = 0;
 			byte l = 0;
@@ -226,7 +231,7 @@ namespace ABElectronics_Win10IOT_Libraries
 			}
 			else
 			{
-				throw new NotSupportedException();
+				throw new ArgumentOutOfRangeException(nameof(channel));
 			}
 
 			// if the conversion mode is set to one-shot update the ready bit to 1
@@ -323,6 +328,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="gain">Set to 1, 2, 4 or 8</param>
 		public void SetPGA(byte gain)
 		{
+			CheckConnected();
+
 			// update the configs with the new gain settings
 			switch (gain)
 			{
@@ -355,7 +362,7 @@ namespace ABElectronics_Win10IOT_Libraries
 					pga = 4;
 					break;
 				default:
-					throw new NotSupportedException();
+					throw new InvalidOperationException("Invalid Bitrate");
 			}
 			helper.WriteI2CSingleByte(i2cbus1, config1);
 			helper.WriteI2CSingleByte(i2cbus2, config2);
@@ -372,6 +379,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// </param>
 		public void SetBitRate(byte rate)
 		{
+			CheckConnected();
+
 			switch (rate)
 			{
 				case 12:
@@ -407,7 +416,7 @@ namespace ABElectronics_Win10IOT_Libraries
 					lsb = 0.0000078125;
 					break;
 				default:
-					throw new NotSupportedException();
+					throw new ArgumentOutOfRangeException(nameof(rate));
 			}
 			helper.WriteI2CSingleByte(i2cbus1, config1);
 			helper.WriteI2CSingleByte(i2cbus2, config2);
@@ -433,13 +442,25 @@ namespace ABElectronics_Win10IOT_Libraries
 			}
 		}
 
+		private void CheckConnected()
+		{
+			if (!IsConnected)
+			{
+				throw new InvalidOperationException("Not connected. You must call .Connect() first.");
+			}
+		}
+
 		/// <summary>
-		///     Dispose of the ADCPi instance.
+		///     Dispose of the <see cref="ADCPi"/> instance.
 		/// </summary>
 		public void Dispose()
 		{
-			i2cbus1.Dispose();
-			i2cbus2.Dispose();
+			i2cbus1?.Dispose();
+			i2cbus1 = null;
+
+			i2cbus2?.Dispose();
+			i2cbus2 = null;
+
 			IsConnected = false;
 		}
 	}

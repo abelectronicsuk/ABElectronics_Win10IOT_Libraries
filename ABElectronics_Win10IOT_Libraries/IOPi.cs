@@ -10,7 +10,7 @@ namespace ABElectronics_Win10IOT_Libraries
 	///     Class for controlling the IO Pi and IO Pi Plus expansion boards from AB Electronics UK
 	///     Based on the MCP23017 IO expander IC from Microchip.
 	/// </summary>
-	public class IOPi
+	public class IOPi : IDisposable
 	{
 		// Define registers values from datasheet
 
@@ -169,7 +169,10 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// </summary>
 		public async Task Connect()
 		{
-			IsConnected = false;
+			if (IsConnected)
+			{
+				return; // Already connected
+			}
 
 			if (!ApiInformation.IsTypePresent("Windows.Devices.I2c.I2cDevice"))
 			{
@@ -226,9 +229,11 @@ namespace ABElectronics_Win10IOT_Libraries
 		///     Set IO <paramref name="direction" /> for an individual pin.
 		/// </summary>
 		/// <param name="pin">1 to 16</param>
-		/// <param name="direction">1 = input, 0 = output</param>
+		/// <param name="direction">true = input, false = output</param>
 		public void SetPinDirection(byte pin, bool direction)
 		{
+			CheckConnected();
+
 			pin = (byte) (pin - 1);
 
 			if (pin < 8)
@@ -243,7 +248,7 @@ namespace ABElectronics_Win10IOT_Libraries
 			}
 			else
 			{
-				throw new NotSupportedException();
+				throw new ArgumentOutOfRangeException(nameof(pin));
 			}
 		}
 
@@ -253,10 +258,12 @@ namespace ABElectronics_Win10IOT_Libraries
 		///     Each bit in the byte represents one pin so for example 0x0A would set pins 2 and 4 to
 		///     inputs and all other pins to outputs.
 		/// </summary>
-		/// <param name="direction">Direction for all pins on the port.  1 = input, 0 = output</param>
 		/// <param name="port">0 = pins 1 to 8, 1 = pins 9 to 16</param>
+		/// <param name="direction">Direction for all pins on the port.  1 = input, 0 = output</param>
 		public void SetPortDirection(byte port, byte direction)
 		{
+			CheckConnected();
+
 			switch (port)
 			{
 				case 0:
@@ -268,7 +275,7 @@ namespace ABElectronics_Win10IOT_Libraries
 					port_b_dir = direction;
 					break;
 				default:
-					throw new NotSupportedException();
+					throw new ArgumentOutOfRangeException(nameof(port));
 			}
 		}
 
@@ -279,6 +286,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="value">true = enabled, false = disabled</param>
 		public void SetPinPullup(byte pin, bool value)
 		{
+			CheckConnected();
+
 			pin = (byte) (pin - 1);
 
 			if (pin < 8)
@@ -293,7 +302,7 @@ namespace ABElectronics_Win10IOT_Libraries
 			}
 			else
 			{
-				throw new NotSupportedException();
+				throw new ArgumentOutOfRangeException(nameof(pin));
 			}
 		}
 
@@ -304,6 +313,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="value">number between 0 and 255 or 0x00 and 0xFF</param>
 		public void SetPortPullups(byte port, byte value)
 		{
+			CheckConnected();
+
 			switch (port)
 			{
 				case 0:
@@ -315,7 +326,7 @@ namespace ABElectronics_Win10IOT_Libraries
 					helper.WriteI2CByte(i2cbus, GPPUB, value);
 					break;
 				default:
-					throw new NotSupportedException();
+					throw new ArgumentOutOfRangeException(nameof(port));
 			}
 		}
 
@@ -326,6 +337,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="value">0 = logic low, 1 = logic high</param>
 		public void WritePin(byte pin, bool value)
 		{
+			CheckConnected();
+
 			pin = (byte) (pin - 1);
 			if (pin < 8)
 			{
@@ -339,7 +352,7 @@ namespace ABElectronics_Win10IOT_Libraries
 			}
 			else
 			{
-				throw new NotSupportedException();
+				throw new ArgumentOutOfRangeException(nameof(pin));
 			}
 		}
 
@@ -350,6 +363,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="value">number between 0 and 255 or 0x00 and 0xFF</param>
 		public void WritePort(byte port, byte value)
 		{
+			CheckConnected();
+
 			switch (port)
 			{
 				case 0:
@@ -361,7 +376,7 @@ namespace ABElectronics_Win10IOT_Libraries
 					portbval = value;
 					break;
 				default:
-					throw new NotSupportedException();
+					throw new ArgumentOutOfRangeException(nameof(port));
 			}
 		}
 
@@ -372,6 +387,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <returns>0 = logic level low, 1 = logic level high</returns>
 		public bool ReadPin(byte pin)
 		{
+			CheckConnected();
+
 			pin = (byte) (pin - 1);
 			if (pin < 8)
 			{
@@ -383,7 +400,7 @@ namespace ABElectronics_Win10IOT_Libraries
 				portbval = helper.ReadI2CByte(i2cbus, GPIOB);
 				return helper.CheckBit(portbval, (byte) (pin - 8));
 			}
-			throw new NotSupportedException();
+			throw new ArgumentOutOfRangeException(nameof(pin));
 		}
 
 		/// <summary>
@@ -393,6 +410,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <returns>returns number between 0 and 255 or 0x00 and 0xFF</returns>
 		public byte ReadPort(byte port)
 		{
+			CheckConnected();
+
 			switch (port)
 			{
 				case 0:
@@ -402,7 +421,7 @@ namespace ABElectronics_Win10IOT_Libraries
 					portbval = helper.ReadI2CByte(i2cbus, GPIOB);
 					return portbval;
 				default:
-					throw new NotSupportedException();
+					throw new ArgumentOutOfRangeException(nameof(port));
 			}
 		}
 
@@ -413,6 +432,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="polarity">0x00 - 0xFF (0 = same logic state of the input pin, 1 = inverted logic state of the input pin)</param>
 		public void InvertPort(byte port, byte polarity)
 		{
+			CheckConnected();
+
 			switch (port)
 			{
 				case 0:
@@ -424,7 +445,7 @@ namespace ABElectronics_Win10IOT_Libraries
 					portb_polarity = polarity;
 					break;
 				default:
-					throw new NotSupportedException();
+					throw new ArgumentOutOfRangeException(nameof(port));
 			}
 		}
 
@@ -435,6 +456,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="polarity">False = same logic state of the input pin, True = inverted logic state of the input pin</param>
 		public void InvertPin(byte pin, bool polarity)
 		{
+			CheckConnected();
+
 			pin = (byte) (pin - 1);
 			if (pin < 8)
 			{
@@ -448,7 +471,7 @@ namespace ABElectronics_Win10IOT_Libraries
 			}
 			else
 			{
-				throw new NotSupportedException();
+				throw new ArgumentOutOfRangeException(nameof(pin));
 			}
 		}
 
@@ -461,6 +484,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// </param>
 		public void MirrorInterrupts(byte value)
 		{
+			CheckConnected();
+
 			switch (value)
 			{
 				case 0:
@@ -472,7 +497,7 @@ namespace ABElectronics_Win10IOT_Libraries
 					helper.WriteI2CByte(i2cbus, IOCON, config);
 					break;
 				default:
-					throw new NotSupportedException();
+					throw new ArgumentOutOfRangeException(nameof(value));
 			}
 		}
 
@@ -482,6 +507,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="value">1 = Active - high. 0 = Active - low.</param>
 		public void SetInterruptPolarity(byte value)
 		{
+			CheckConnected();
+
 			switch (value)
 			{
 				case 0:
@@ -493,7 +520,7 @@ namespace ABElectronics_Win10IOT_Libraries
 					helper.WriteI2CByte(i2cbus, IOCON, config);
 					break;
 				default:
-					throw new NotSupportedException();
+					throw new ArgumentOutOfRangeException(nameof(value));
 			}
 		}
 
@@ -506,6 +533,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="value">number between 0 and 255 or 0x00 and 0xFF</param>
 		public void SetInterruptType(byte port, byte value)
 		{
+			CheckConnected();
+
 			switch (port)
 			{
 				case 0:
@@ -515,7 +544,7 @@ namespace ABElectronics_Win10IOT_Libraries
 					helper.WriteI2CByte(i2cbus, INTCONB, value);
 					break;
 				default:
-					throw new NotSupportedException();
+					throw new ArgumentOutOfRangeException(nameof(port));
 			}
 		}
 
@@ -528,6 +557,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="value">number between 0 and 255 or 0x00 and 0xFF</param>
 		public void SetInterruptDefaults(byte port, byte value)
 		{
+			CheckConnected();
+
 			switch (port)
 			{
 				case 0:
@@ -537,7 +568,7 @@ namespace ABElectronics_Win10IOT_Libraries
 					helper.WriteI2CByte(i2cbus, DEFVALB, value);
 					break;
 				default:
-					throw new NotSupportedException();
+					throw new ArgumentOutOfRangeException(nameof(port));
 			}
 		}
 
@@ -548,6 +579,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="value">number between 0 and 255 or 0x00 and 0xFF</param>
 		public void SetInterruptOnPort(byte port, byte value)
 		{
+			CheckConnected();
+
 			switch (port)
 			{
 				case 0:
@@ -559,7 +592,7 @@ namespace ABElectronics_Win10IOT_Libraries
 					intB = value;
 					break;
 				default:
-					throw new NotSupportedException();
+					throw new ArgumentOutOfRangeException(nameof(port));
 			}
 		}
 
@@ -570,6 +603,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="value">0 = interrupt disabled, 1 = interrupt enabled</param>
 		public void SetInterruptOnPin(byte pin, bool value)
 		{
+			CheckConnected();
+
 			pin = (byte) (pin - 1);
 			if (pin < 8)
 			{
@@ -583,7 +618,7 @@ namespace ABElectronics_Win10IOT_Libraries
 			}
 			else
 			{
-				throw new NotSupportedException();
+				throw new ArgumentOutOfRangeException(nameof(pin));
 			}
 		}
 
@@ -593,6 +628,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="port">0 = pins 1 to 8, 1 = pins 9 to 16</param>
 		public byte ReadInterruptStatus(byte port)
 		{
+			CheckConnected();
+
 			switch (port)
 			{
 				case 0:
@@ -600,7 +637,7 @@ namespace ABElectronics_Win10IOT_Libraries
 				case 1:
 					return helper.ReadI2CByte(i2cbus, INTFB);
 				default:
-					throw new NotSupportedException();
+					throw new ArgumentOutOfRangeException(nameof(port));
 			}
 		}
 
@@ -611,6 +648,8 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="port">0 = pins 1 to 8, 1 = pins 9 to 16</param>
 		public byte ReadInterruptCapture(byte port)
 		{
+			CheckConnected();
+
 			switch (port)
 			{
 				case 0:
@@ -618,7 +657,7 @@ namespace ABElectronics_Win10IOT_Libraries
 				case 1:
 					return helper.ReadI2CByte(i2cbus, INTCAPB);
 				default:
-					throw new NotSupportedException();
+					throw new ArgumentOutOfRangeException(nameof(port));
 			}
 		}
 
@@ -627,8 +666,18 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// </summary>
 		public void ResetInterrupts()
 		{
+			CheckConnected();
+
 			ReadInterruptCapture(0);
 			ReadInterruptCapture(1);
+		}
+
+		private void CheckConnected()
+		{
+			if (!IsConnected)
+			{
+				throw new InvalidOperationException("Not connected. You must call .Connect() first.");
+			}
 		}
 
 		/// <summary>
@@ -636,7 +685,9 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// </summary>
 		public void Dispose()
 		{
-			i2cbus.Dispose();
+			i2cbus?.Dispose();
+			i2cbus = null;
+
 			IsConnected = false;
 		}
 	}

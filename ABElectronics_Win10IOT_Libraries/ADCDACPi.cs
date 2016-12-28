@@ -8,7 +8,7 @@ namespace ABElectronics_Win10IOT_Libraries
 	/// <summary>
 	///     Class for accessing the ADCDAC Pi from AB Electronics UK.
 	/// </summary>
-	public class ADCDACPi
+	public class ADCDACPi : IDisposable
 	{
 		private const string SPI_CONTROLLER_NAME = "SPI0";
 		private const Int32 ADC_CHIP_SELECT_LINE = 0; // ADC on SPI channel select CE0
@@ -28,7 +28,10 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// </summary>
 		public async void Connect()
 		{
-			IsConnected = false;
+			if (IsConnected)
+			{
+				return; // Already connected
+			}
 
 			if(!ApiInformation.IsTypePresent("Windows.Devices.Spi.SpiDevice"))
 			{
@@ -93,12 +96,11 @@ namespace ABElectronics_Win10IOT_Libraries
 		{
 			if (channel < 1 || channel > 2)
 			{
-				throw new ArgumentOutOfRangeException();
+				throw new ArgumentOutOfRangeException(nameof(channel));
 			}
 
 			var raw = ReadADCRaw(channel);
-			var voltage = ADCReferenceVoltage / 4096 * raw;
-				// convert the raw value into a voltage based on the reference voltage.
+			var voltage = ADCReferenceVoltage / 4096 * raw; // convert the raw value into a voltage based on the reference voltage.
 			return voltage;
 		}
 
@@ -112,18 +114,19 @@ namespace ABElectronics_Win10IOT_Libraries
 		{
 			if (channel < 1 || channel > 2)
 			{
-				throw new ArgumentOutOfRangeException();
+				throw new ArgumentOutOfRangeException(nameof(channel));
 			}
 
-			var writeArray = new byte[] { 0x01, (byte) ((1 + channel) << 6), 0x00}; // create the write bytes based on the input channel
+			CheckConnected();
 
+			var writeArray = new byte[] { 0x01, (byte) ((1 + channel) << 6), 0x00}; // create the write bytes based on the input channel
 
 			var readBuffer = new byte[3]; // this holds the output data
 
 			adc.TransferFullDuplex(writeArray, readBuffer); // transfer the adc data
 
-			var ret = (short) (((readBuffer[1] & 0x0F) << 8) + readBuffer[2]);
-				// combine the two bytes into a single 16bit integer
+			var ret = (short) (((readBuffer[1] & 0x0F) << 8) + readBuffer[2]); // combine the two bytes into a single 16bit integer
+
 			return ret;
 		}
 
@@ -137,14 +140,14 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="voltage">double</param>
 		public void SetADCrefVoltage(double voltage)
 		{
-			if (voltage >= 0.0 && voltage <= 7.0)
+			CheckConnected();
+
+			if (voltage < 0.0 || voltage > 7.0)
 			{
-				ADCReferenceVoltage = voltage;
+				throw new ArgumentOutOfRangeException(nameof(voltage), "Reference voltage must be between 0.0V and 7.0V.");
 			}
-			else
-			{
-				throw new ArgumentOutOfRangeException();
-			}
+
+			ADCReferenceVoltage = voltage;
 		}
 
 		/// <summary>
@@ -178,11 +181,40 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// <param name="voltage">Value between 0 and 4095</param>
 		public void SetDACRaw(byte channel, short value)
 		{
+			CheckConnected();
+
+			if (channel < 1 || channel > 2)
+			{
+				throw new ArgumentOutOfRangeException();
+			}
+
 			// split the raw value into two bytes and send it to the DAC.
 			var lowByte = (byte) (value & 0xff);
 			var highByte = (byte) (((value >> 8) & 0xff) | ((channel - 1) << 7) | (0x1 << 5) | (1 << 4));
 			var writeBuffer = new [] { highByte, lowByte};
 			dac.Write(writeBuffer);
+		}
+
+		private void CheckConnected()
+		{
+			if (!IsConnected)
+			{
+				throw new InvalidOperationException("Not connected. You must call .Connect() first.");
+			}
+		}
+
+		/// <summary>
+		///     Close the devices.
+		/// </summary>
+		public void Dispose()
+		{
+			adc?.Dispose();
+			adc = null;
+
+			dac?.Dispose();
+			dac = null;
+
+			IsConnected = false;
 		}
 	}
 }
