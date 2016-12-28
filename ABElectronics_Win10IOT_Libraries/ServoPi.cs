@@ -17,7 +17,6 @@ namespace ABElectronics_Win10IOT_Libraries
         private readonly byte ALL_LED_OFF_L = 0xFC;
         private readonly byte ALL_LED_ON_H = 0xFB;
         private readonly byte ALL_LED_ON_L = 0xFA;
-        private byte ALLCALLADR = 0x05;
         private GpioController gpio;
         private readonly ABE_Helpers helper = new ABE_Helpers();
 
@@ -30,12 +29,8 @@ namespace ABElectronics_Win10IOT_Libraries
 
         // Define registers values from the datasheet
         private readonly byte MODE1 = 0x00;
-        private byte MODE2 = 0x01;
         private GpioPin pin;
         private readonly byte PRE_SCALE = 0xFE;
-        private byte SUBADR1 = 0x02;
-        private byte SUBADR2 = 0x03;
-        private byte SUBADR3 = 0x04;
 
         /// <summary>
         ///     Create an instance of a Servo Pi bus.

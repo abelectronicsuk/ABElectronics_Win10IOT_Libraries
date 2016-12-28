@@ -178,7 +178,7 @@ namespace ABElectronics_Win10IOT_Libraries
         ///     Set the raw <paramref name="value" /> from the selected <paramref name="channel" /> on the DAC.
         /// </summary>
         /// <param name="channel">1 or 2</param>
-        /// <param name="voltage">Value between 0 and 4095</param>
+        /// <param name="value">Value between 0 and 4095</param>
         public void SetDACRaw(byte channel, short value)
         {
             CheckConnected();
