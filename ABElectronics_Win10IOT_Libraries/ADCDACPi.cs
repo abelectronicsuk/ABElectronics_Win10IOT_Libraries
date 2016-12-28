@@ -1,6 +1,7 @@
 ﻿using System;
 using Windows.Devices.Enumeration;
 using Windows.Devices.Spi;
+using Windows.Foundation.Metadata;
 
 namespace ABElectronics_Win10IOT_Libraries
 {
@@ -27,39 +28,53 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// </summary>
 		public async void Connect()
 		{
+			IsConnected = false;
+
+			if(!ApiInformation.IsTypePresent("Windows.Devices.Spi.SpiDevice"))
+			{
+				return; // This system does not support this feature: can't connect
+			}
+
 			try
 			{
-				var adcsettings = new SpiConnectionSettings(ADC_CHIP_SELECT_LINE); // Create SPI initialization settings for the ADC
-				adcsettings.ClockFrequency = 10000000; // SPI clock frequency of 10MHz
-				adcsettings.Mode = SpiMode.Mode0;
+				// Create SPI initialization settings for the ADC
+				var adcsettings =
+					new SpiConnectionSettings(ADC_CHIP_SELECT_LINE)
+					{
+						ClockFrequency = 10000000, // SPI clock frequency of 10MHz
+						Mode = SpiMode.Mode0
+					};
 
-				var spiAqs = SpiDevice.GetDeviceSelector(SPI_CONTROLLER_NAME);
-					// Find the selector string for the SPI bus controller
-				var devicesInfo = await DeviceInformation.FindAllAsync(spiAqs);
-					// Find the SPI bus controller device with our selector string
 
-				adc = await SpiDevice.FromIdAsync(devicesInfo[0].Id, adcsettings);
-					// Create an ADC connection with our bus controller and SPI settings
+				var spiAqs = SpiDevice.GetDeviceSelector(SPI_CONTROLLER_NAME); // Find the selector string for the SPI bus controller
+				var devicesInfo = await DeviceInformation.FindAllAsync(spiAqs); // Find the SPI bus controller device with our selector string
 
-				var dacsettings = new SpiConnectionSettings(DAC_CHIP_SELECT_LINE); // Create SPI initialization settings for the DAC
-				dacsettings.ClockFrequency = 2000000; // SPI clock frequency of 20MHz
-				dacsettings.Mode = SpiMode.Mode0;
+				if (devicesInfo.Count == 0)
+				{
+					return; // Controller not found
+				}
 
-				dac = await SpiDevice.FromIdAsync(devicesInfo[0].Id, dacsettings);
-					// Create a DAC connection with our bus controller and SPI settings
+				adc = await SpiDevice.FromIdAsync(devicesInfo[0].Id, adcsettings); // Create an ADC connection with our bus controller and SPI settings
 
+				// Create SPI initialization settings for the DAC
+				var dacSettings =
+					new SpiConnectionSettings(DAC_CHIP_SELECT_LINE)
+					{
+						ClockFrequency = 2000000,  // SPI clock frequency of 20MHz
+						Mode = SpiMode.Mode0
+					};
+
+				dac = await SpiDevice.FromIdAsync(devicesInfo[0].Id, dacSettings); // Create a DAC connection with our bus controller and SPI settings
 
 				IsConnected = true; // connection established, set IsConnected to true.
 
-				var handler = Connected;
-				if (handler != null)
-				{
-					handler(this, EventArgs.Empty);
-				}
+				// Fire the Connected event handler
+				Connected?.Invoke(this, EventArgs.Empty);
 			}
 			/* If initialization fails, display the exception and stop running */
 			catch (Exception ex)
 			{
+				IsConnected = false;
 				throw new Exception("SPI Initialization Failed", ex);
 			}
 		}

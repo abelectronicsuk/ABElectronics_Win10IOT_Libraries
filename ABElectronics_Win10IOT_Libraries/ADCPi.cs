@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Windows.Devices.Enumeration;
 using Windows.Devices.I2c;
+using Windows.Foundation.Metadata;
 
 namespace ABElectronics_Win10IOT_Libraries
 {
@@ -63,23 +64,29 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// </summary>
 		public async Task Connect()
 		{
+			IsConnected = false;
+
+			if (!ApiInformation.IsTypePresent("Windows.Devices.I2c.I2cDevice"))
+			{
+				return; // This system does not support this feature: can't connect
+			}
+
 			// Initialize both I2C busses
 			try
 			{
-				var aqs = I2cDevice.GetDeviceSelector(ABE_Helpers.I2C_CONTROLLER_NAME);
-					// Find the selector string for the I2C bus controller
+				var aqs = I2cDevice.GetDeviceSelector(ABE_Helpers.I2C_CONTROLLER_NAME); // Find the selector string for the I2C bus controller
 				var dis = await DeviceInformation.FindAllAsync(aqs); // Find the I2C bus controller device with our selector string
 
-				var settings1 = new I2cConnectionSettings(Address1);
-				var settings2 = new I2cConnectionSettings(Address2);
+				if (dis.Count == 0)
+				{
+					return; // Controller not found
+				}
 
-				settings1.BusSpeed = I2cBusSpeed.FastMode;
-				settings2.BusSpeed = I2cBusSpeed.FastMode;
+				var settings1 = new I2cConnectionSettings(Address1) {BusSpeed = I2cBusSpeed.FastMode};
+				var settings2 = new I2cConnectionSettings(Address2) {BusSpeed = I2cBusSpeed.FastMode};
 
-				i2cbus1 = await I2cDevice.FromIdAsync(dis[0].Id, settings1);
-					// Create an I2cDevice with our selected bus controller and I2C settings
-				i2cbus2 = await I2cDevice.FromIdAsync(dis[0].Id, settings2);
-					// Create an I2cDevice with our selected bus controller and I2C settings
+				i2cbus1 = await I2cDevice.FromIdAsync(dis[0].Id, settings1); // Create an I2cDevice with our selected bus controller and I2C settings
+				i2cbus2 = await I2cDevice.FromIdAsync(dis[0].Id, settings2); // Create an I2cDevice with our selected bus controller and I2C settings
 
 				// check if the i2c busses are not null
 				if (i2cbus1 != null && i2cbus2 != null)
@@ -88,22 +95,14 @@ namespace ABElectronics_Win10IOT_Libraries
 					IsConnected = true;
 					SetBitRate(bitrate);
 
-					var handler = Connected;
-					if (handler != null)
-					{
-						handler(this, EventArgs.Empty);
-					}
-				}
-				else
-				{
-					IsConnected = false;
+					// Fire the Connected event handler
+					Connected?.Invoke(this, EventArgs.Empty);
 				}
 			}
-			/* If initialization fails, display the exception and stop running */
-			catch (Exception e)
+			catch (Exception ex)
 			{
 				IsConnected = false;
-				throw e;
+				throw new Exception("I2C Initialization Failed", ex);
 			}
 		}
 

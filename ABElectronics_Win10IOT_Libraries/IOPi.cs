@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Windows.Devices.Enumeration;
 using Windows.Devices.I2c;
+using Windows.Foundation.Metadata;
 
 namespace ABElectronics_Win10IOT_Libraries
 {
@@ -168,13 +169,25 @@ namespace ABElectronics_Win10IOT_Libraries
 		/// </summary>
 		public async Task Connect()
 		{
+			IsConnected = false;
+
+			if (!ApiInformation.IsTypePresent("Windows.Devices.I2c.I2cDevice"))
+			{
+				return; // This system does not support this feature: can't connect
+			}
+
 			/* Initialize the I2C bus */
 			try
 			{
 				var aqs = I2cDevice.GetDeviceSelector(ABE_Helpers.I2C_CONTROLLER_NAME); // Find the selector string for the I2C bus controller
 				var dis = await DeviceInformation.FindAllAsync(aqs); // Find the I2C bus controller device with our selector string
-				var settings = new I2cConnectionSettings(Address);
-				settings.BusSpeed = I2cBusSpeed.FastMode;
+
+				if (dis.Count == 0)
+				{
+					return; // Controller not found
+				}
+
+				var settings = new I2cConnectionSettings(Address) {BusSpeed = I2cBusSpeed.FastMode};
 
 				i2cbus = await I2cDevice.FromIdAsync(dis[0].Id, settings); // Create an I2cDevice with our selected bus controller and I2C settings
 				if (i2cbus != null)
@@ -193,22 +206,14 @@ namespace ABElectronics_Win10IOT_Libraries
 					// Set IsConnected to true and fire the Connected event handler
 					IsConnected = true;
 
-					var handler = Connected;
-					if (handler != null)
-					{
-						handler(this, EventArgs.Empty);
-					}
-				}
-				else
-				{
-					IsConnected = false;
+					// Fire the Connected event handler
+					Connected?.Invoke(this, EventArgs.Empty);
 				}
 			}
-			/* If initialization fails, display the exception and stop running */
-			catch (Exception e)
+			catch (Exception ex)
 			{
 				IsConnected = false;
-				throw e;
+				throw new Exception("I2C Initialization Failed", ex);
 			}
 		}
 
