@@ -2,69 +2,41 @@ using System;
 using System.Threading.Tasks;
 using Windows.Devices.Enumeration;
 using Windows.Devices.I2c;
+using Windows.Foundation.Metadata;
 
 namespace ABElectronics_Win10IOT_Libraries
 {
     /// <summary>
-    /// Class for controlling the ADC Pi and ADC Pi Plus expansion boards from AB Electronics UK
+    ///     Class for controlling the ADC Pi and ADC Pi Plus expansion boards from AB Electronics UK
     /// </summary>
     public class ADCPi
     {
-        private ABE_Helpers helper = new ABE_Helpers();
+        // create byte array and fill with initial values to define size
 
-        private I2cDevice i2cbus1; // i2c bus for ADC chip 1
-        private I2cDevice i2cbus2; // i2c bus for ADC chip 2
+        private Byte[] __adcreading = {0, 0, 0, 0};
+        private byte bitrate = 18; // current bit rate
 
-        /// <summary>
-        /// I2C address for the U1 (channels 1 - 4)
-        /// </summary>
-        public byte Address1 { get; set; }
-        
-        /// <summary>
-        /// I2C address for the U2 (channels 5 - 8)
-        /// </summary>
-        public byte Address2 { get; set; }
-        
-        /// <summary>
-        /// Shows if there is a connection with the ADC Pi
-        /// </summary>
-        public bool IsConnected
-        {
-            get
-            {
-                return isConnected;
-            }
-
-            private set
-            {
-                isConnected = value;
-            }
-        }
-
-        
 
         // internal variables
 
-        private bool isConnected;
-        private byte config1 = 0x9C;  // PGAx1, 18 bit, continuous conversion, channel 1
-        private byte currentchannel1 = 0;  // channel variable for ADC 1
-        private byte config2 = 0x9C;  // PGAx1, 18 bit, continuous-shot conversion, channel 1
-        private byte currentchannel2 = 0;  // channel variable for ADC 2
-        private byte bitrate = 18;  // current bit rate
+        private byte config1 = 0x9C; // PGAx1, 18 bit, continuous conversion, channel 1
+        private byte config2 = 0x9C; // PGAx1, 18 bit, continuous-shot conversion, channel 1
         private byte conversionmode = 1; // Conversion Mode
-        private double pga = 0.5;  // current PGA setting
-        private double lsb = 0.0000078125;  // default LSB value for 18 bit
-        private bool signbit = false;
+        private byte currentchannel1; // channel variable for ADC 1
+        private byte currentchannel2; // channel variable for ADC 2
+        private readonly ABE_Helpers helper = new ABE_Helpers();
 
-        // create byte array and fill with initial values to define size
-
-        Byte[] __adcreading = { 0, 0, 0, 0 };
+        private I2cDevice i2cbus1; // i2c bus for ADC chip 1
+        private I2cDevice i2cbus2; // i2c bus for ADC chip 2
+        private double lsb = 0.0000078125; // default LSB value for 18 bit
+        private double pga = 0.5; // current PGA setting
+        private bool signbit;
 
         /// <summary>
-        /// Instance of a ADC Pi bus
+        ///     Create an instance of a ADC Pi bus.
         /// </summary>
         /// <param name="i2caddress1">I2C address for the U1 (channels 1 - 4)</param>
-        /// /// <param name="i2caddress2">I2C address for the U2 (channels 5 - 8)</param>
+        /// <param name="i2caddress2">I2C address for the U2 (channels 5 - 8)</param>
         public ADCPi(byte i2caddress1 = 0x68, byte i2caddress2 = 0x69)
         {
             Address1 = i2caddress1;
@@ -73,69 +45,87 @@ namespace ABElectronics_Win10IOT_Libraries
         }
 
         /// <summary>
-        /// Open a connection with the ADC Pi
+        ///     I2C address for the U1 (channels 1 - 4).
+        /// </summary>
+        public byte Address1 { get; set; }
+
+        /// <summary>
+        ///     I2C address for the U2 (channels 5 - 8).
+        /// </summary>
+        public byte Address2 { get; set; }
+
+        /// <summary>
+        ///     Shows if there is a connection with the ADC Pi.
+        /// </summary>
+        public bool IsConnected { get; private set; }
+
+        /// <summary>
+        ///     Open a connection with the ADC Pi.
         /// </summary>
         public async Task Connect()
         {
-            /* Initialize both I2C busses */
+            if (IsConnected)
+            {
+                return; // Already connected
+            }
+
+            if (!ApiInformation.IsTypePresent("Windows.Devices.I2c.I2cDevice"))
+            {
+                return; // This system does not support this feature: can't connect
+            }
+
+            // Initialize both I2C busses
             try
             {
-                string aqs = I2cDevice.GetDeviceSelector(helper.I2C_CONTROLLER_NAME);  /* Find the selector string for the I2C bus controller   */
-                var dis = await DeviceInformation.FindAllAsync(aqs);            /* Find the I2C bus controller device with our selector string  */
+                var aqs = I2cDevice.GetDeviceSelector(ABE_Helpers.I2C_CONTROLLER_NAME); // Find the selector string for the I2C bus controller
+                var dis = await DeviceInformation.FindAllAsync(aqs); // Find the I2C bus controller device with our selector string
 
-                var settings1 = new I2cConnectionSettings(Address1);
-                var settings2 = new I2cConnectionSettings(Address2);
+                if (dis.Count == 0)
+                {
+                    return; // Controller not found
+                }
 
-                settings1.BusSpeed = I2cBusSpeed.FastMode;
-                settings2.BusSpeed = I2cBusSpeed.FastMode;
+                var settings1 = new I2cConnectionSettings(Address1) {BusSpeed = I2cBusSpeed.FastMode};
+                var settings2 = new I2cConnectionSettings(Address2) {BusSpeed = I2cBusSpeed.FastMode};
 
-                i2cbus1 = await I2cDevice.FromIdAsync(dis[0].Id, settings1);    /* Create an I2cDevice with our selected bus controller and I2C settings */
-                i2cbus2 = await I2cDevice.FromIdAsync(dis[0].Id, settings2);    /* Create an I2cDevice with our selected bus controller and I2C settings */
+                i2cbus1 = await I2cDevice.FromIdAsync(dis[0].Id, settings1); // Create an I2cDevice with our selected bus controller and I2C settings
+                i2cbus2 = await I2cDevice.FromIdAsync(dis[0].Id, settings2); // Create an I2cDevice with our selected bus controller and I2C settings
 
                 // check if the i2c busses are not null
-                if ((i2cbus1 != null) && (i2cbus2 != null))
+                if (i2cbus1 != null && i2cbus2 != null)
                 {
                     // set the initial bit rate and trigger a Connected event handler
                     IsConnected = true;
                     SetBitRate(bitrate);
 
-                    EventHandler handler = Connected;
-                    if (handler != null)
-                    {
-                        handler(this, EventArgs.Empty);
-                    }
+                    // Fire the Connected event handler
+                    Connected?.Invoke(this, EventArgs.Empty);
                 }
-                else
-                {
-                    IsConnected = false;
-                }
-                return;
             }
-            /* If initialization fails, display the exception and stop running */
-            catch (Exception e)
+            catch (Exception ex)
             {
                 IsConnected = false;
-                throw e;
+                throw new Exception("I2C Initialization Failed", ex);
             }
         }
 
         /// <summary>
-        /// Event occurs when connection is made
+        ///     Event occurs when connection is made.
         /// </summary>
         public event EventHandler Connected;
 
 
         /// <summary>
-        /// internal method for updating the configuration to the selected channel
+        ///     Private method for updating the configuration to the selected <paramref name="channel" />.
         /// </summary>
         /// <param name="channel">ADC channel, 1 - 8</param>
         private void SetChannel(byte channel)
         {
-            /* Checks to see if the selected channel is already the current channel.  
-            If not then update the appropriate config to the new channel settings. */
+            // Checks to see if the selected channel is already the current channel.
+            // If not then update the appropriate config to the new channel settings.
 
-           if ((channel < 5) && (channel != currentchannel1))
-           {
+            if (channel < 5 && channel != currentchannel1)
+            {
                 switch (channel)
                 {
                     case 1:
@@ -160,7 +150,7 @@ namespace ABElectronics_Win10IOT_Libraries
                         break;
                 }
             }
-            else if ((channel >= 5 && channel <= 8) && (channel != currentchannel2))
+            else if (channel >= 5 && channel <= 8 && channel != currentchannel2)
             {
                 switch (channel)
                 {
@@ -185,37 +175,34 @@ namespace ABElectronics_Win10IOT_Libraries
                         currentchannel2 = 8;
                         break;
                 }
-           }
+            }
         }
 
-
-
         /// <summary>
-        /// Returns the voltage from the selected ADC channel
+        ///     Returns the voltage from the selected ADC <paramref name="channel" />.
         /// </summary>
         /// <param name="channel">1 to 8</param>
-        /// <returns></returns>
+        /// <returns>Read voltage</returns>
         public double ReadVoltage(byte channel)
         {
-            int raw = ReadRaw(channel); // get the raw value
+            var raw = ReadRaw(channel); // get the raw value
             if (signbit) // check to see if the sign bit is present, if it is then the voltage is negative and can be ignored.
             {
-                return 0.0;  // returned a negative voltage so return 0
+                return 0.0; // returned a negative voltage so return 0
             }
-            else
-            {
-                double voltage = (raw * (lsb / pga)) * 2.471; // calculate the voltage and return it
-                return voltage;
-            }
+            var voltage = raw * (lsb / pga) * 2.471; // calculate the voltage and return it
+            return voltage;
         }
 
         /// <summary>
-        /// Reads the raw value from the selected ADC channel
+        ///     Reads the raw value from the selected ADC <paramref name="channel" />.
         /// </summary>
         /// <param name="channel">1 to 8</param>
         /// <returns>raw integer value from ADC buffer</returns>
         public int ReadRaw(byte channel)
         {
+            CheckConnected();
+
             // variables for storing the raw bytes from the ADC
             byte h = 0;
             byte l = 0;
@@ -223,7 +210,7 @@ namespace ABElectronics_Win10IOT_Libraries
             byte s = 0;
             byte config = 0;
 
-            int t = 0;
+            var t = 0;
             signbit = false;
 
             // create a new instance of the I2C device
@@ -244,7 +231,7 @@ namespace ABElectronics_Win10IOT_Libraries
             }
             else
             {
-                throw new NotSupportedException();
+                throw new ArgumentOutOfRangeException(nameof(channel));
             }
 
             // if the conversion mode is set to one-shot update the ready bit to 1
@@ -256,8 +243,8 @@ namespace ABElectronics_Win10IOT_Libraries
             }
 
             // keep reading the ADC data until the conversion result is ready
-            int timeout = 1000; // number of reads before a timeout occurs
-            int x = 0;
+            var timeout = 1000; // number of reads before a timeout occurs
+            var x = 0;
             do
             {
                 if (bitrate == 18)
@@ -336,11 +323,13 @@ namespace ABElectronics_Win10IOT_Libraries
         }
 
         /// <summary>
-        /// Programmable Gain Amplifier gain selection
+        ///     Set the PGA (Programmable Gain Amplifier) <paramref name="gain"/>.
         /// </summary>
         /// <param name="gain">Set to 1, 2, 4 or 8</param>
         public void SetPGA(byte gain)
         {
+            CheckConnected();
+
             // update the configs with the new gain settings
             switch (gain)
             {
@@ -373,18 +362,25 @@ namespace ABElectronics_Win10IOT_Libraries
                     pga = 4;
                     break;
                 default:
-                    throw new NotSupportedException();
+                    throw new InvalidOperationException("Invalid Bitrate");
             }
             helper.WriteI2CSingleByte(i2cbus1, config1);
             helper.WriteI2CSingleByte(i2cbus2, config2);
         }
 
         /// <summary>
-        /// Set the sample resolution
+        ///     Set the sample resolution (rate).
         /// </summary>
-        /// <param name="rate">12 = 12 bit(240SPS max), 14 = 14 bit(60SPS max), 16 = 16 bit(15SPS max), 18 = 18 bit(3.75SPS max)</param>
+        /// <param name="rate">
+        ///     12 = 12 bit(240SPS max),
+        ///     14 = 14 bit(60SPS max),
+        ///     16 = 16 bit(15SPS max),
+        ///     18 = 18 bit(3.75SPS max)
+        /// </param>
         public void SetBitRate(byte rate)
         {
+            CheckConnected();
+
             switch (rate)
             {
                 case 12:
@@ -420,14 +416,14 @@ namespace ABElectronics_Win10IOT_Libraries
                     lsb = 0.0000078125;
                     break;
                 default:
-                    throw new NotSupportedException();
+                    throw new ArgumentOutOfRangeException(nameof(rate));
             }
             helper.WriteI2CSingleByte(i2cbus1, config1);
             helper.WriteI2CSingleByte(i2cbus2, config2);
         }
 
         /// <summary>
-        /// Set the conversion mode for ADC
+        ///     Set the conversion mode for ADC.
         /// </summary>
         /// <param name="mode">0 = One shot conversion mode, 1 = Continuous conversion mode</param>
         private void SetConversionMode(bool mode)
@@ -446,15 +442,26 @@ namespace ABElectronics_Win10IOT_Libraries
             }
         }
 
+        private void CheckConnected()
+        {
+            if (!IsConnected)
+            {
+                throw new InvalidOperationException("Not connected. You must call .Connect() first.");
+            }
+        }
+
         /// <summary>
-        /// Dispose of the ADCPi instance.
+        ///     Dispose of the <see cref="ADCPi"/> instance.
         /// </summary>
         public void Dispose()
         {
-            i2cbus1.Dispose();
-            i2cbus2.Dispose();
+            i2cbus1?.Dispose();
+            i2cbus1 = null;
+
+            i2cbus2?.Dispose();
+            i2cbus2 = null;
+
             IsConnected = false;
         }
-
     }
 }
