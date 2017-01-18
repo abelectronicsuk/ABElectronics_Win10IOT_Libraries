@@ -245,7 +245,7 @@ namespace ABElectronics_Win10IOT_Libraries
             }
 
             // keep reading the ADC data until the conversion result is ready
-            var timeout = 1000; // number of reads before a timeout occurs
+            var timeout = 10000; // number of reads before a timeout occurs
             var x = 0;
             do
             {
