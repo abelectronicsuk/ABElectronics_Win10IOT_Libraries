@@ -34,6 +34,11 @@ namespace ABElectronics_Win10IOT_Libraries
         // variables
         private readonly byte rtcAddress = 0x68; // I2C address
 
+        // Flag: Has Dispose already been called?
+        bool disposed = false;
+        // Instantiate a SafeHandle instance.
+        System.Runtime.InteropServices.SafeHandle handle = new Microsoft.Win32.SafeHandles.SafeFileHandle(IntPtr.Zero, true);
+
         /// <summary>
         ///     Create an instance of a RTC Pi bus.
         /// </summary>
@@ -230,15 +235,38 @@ namespace ABElectronics_Win10IOT_Libraries
             }
         }
 
+
         /// <summary>
-        ///     Dispose if the RTC Pi device.
+        ///     Dispose of the resources
         /// </summary>
         public void Dispose()
         {
-            i2cbus?.Dispose();
-            i2cbus = null;
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
-            IsConnected = false;
+        /// <summary>
+        /// Protected implementation of Dispose pattern
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+
+            if (disposing)
+            {
+                handle.Dispose();
+                // Free any other managed objects here.
+                i2cbus?.Dispose();
+                i2cbus = null;
+
+                IsConnected = false;
+            }
+
+            // Free any unmanaged objects here.
+            //
+            disposed = true;
         }
     }
 }

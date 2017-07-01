@@ -1,0 +1,105 @@
+﻿<Page
+    x:Class="DemoApplication.ExpanderPi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DemoApplication"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Width="996.41">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.Column="1"   BorderBrush="Black" BorderThickness="0 0 0 1" />
+
+        <TextBlock x:Name="title" HorizontalAlignment="Left" Margin="84,21,0,0" TextWrapping="Wrap" Text="Expander Pi" VerticalAlignment="Top" FontSize="32" FontFamily="Segoe UI Light"/>
+        <TextBlock x:Name="label_IO" HorizontalAlignment="Left" Margin="101,47,0,0" TextWrapping="Wrap" Text="Digital IO Bus" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="26.667" Grid.Row="1" Height="35" Width="204"/>
+        <TextBlock x:Name="label_ADCInputs" HorizontalAlignment="Left" Margin="333,47,0,0" TextWrapping="Wrap" Text="ADC Inputs" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="26.667" Grid.Row="1" Height="35" Width="204"/>
+        <TextBlock x:Name="label_DACOutputs" HorizontalAlignment="Left" Margin="622,47,0,0" TextWrapping="Wrap" Text="DAC Outputs" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="26.667" Grid.Row="1" Height="35" Width="204"/>
+        <TextBlock x:Name="label_Date" HorizontalAlignment="Left" Margin="330,375,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Date:" VerticalAlignment="Top" FontSize="26.667"/>
+
+        <TextBlock x:Name="txt_Message" HorizontalAlignment="Left" Margin="28,532,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="635" FontSize="21.333" Grid.Row="1" Height="28"/>
+
+        <Button x:Name="bt_Back" Content="" FontFamily="Segoe UI Symbol" HorizontalAlignment="Left" Padding="0" Margin="10,10,0,0" VerticalAlignment="Top" Height="65" Width="56" Click="bt_Back_Clicked" FontSize="42.667" BorderThickness="0" Background="#33FFFFFF" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <CompositeTransform Rotation="180"/>
+            </Button.RenderTransform>
+        </Button>
+
+        <CheckBox x:Name="chk_IO_Channel_01" Content="1" HorizontalAlignment="Left" Margin="53,126,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_02" Content="2" HorizontalAlignment="Left" Margin="53,158,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_03" Content="3" HorizontalAlignment="Left" Margin="53,190,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_04" Content="4" HorizontalAlignment="Left" Margin="53,222,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_05" Content="5" HorizontalAlignment="Left" Margin="53,254,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_06" Content="6" HorizontalAlignment="Left" Margin="53,286,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_07" Content="7" HorizontalAlignment="Left" Margin="53,318,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_08" Content="8" HorizontalAlignment="Left" Margin="53,350,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_16" Content="16" HorizontalAlignment="Left" Margin="185,126,0,0" VerticalAlignment="Top" Width="120" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_15" Content="15" HorizontalAlignment="Left" Margin="185,158,0,0" VerticalAlignment="Top" Width="120" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_14" Content="14" HorizontalAlignment="Left" Margin="185,190,0,0" VerticalAlignment="Top" Width="120" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_13" Content="13" HorizontalAlignment="Left" Margin="185,222,0,0" VerticalAlignment="Top" Width="120" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_12" Content="12" HorizontalAlignment="Left" Margin="185,254,0,0" VerticalAlignment="Top" Width="120" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_11" Content="11" HorizontalAlignment="Left" Margin="185,286,0,0" VerticalAlignment="Top" Width="120" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_10" Content="10" HorizontalAlignment="Left" Margin="185,318,0,0" VerticalAlignment="Top" Width="120" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Channel_09" Content="9" HorizontalAlignment="Left" Margin="185,350,0,0" VerticalAlignment="Top" Width="120" Click="IO_PinEnable" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Port_0" Content="Port 0" HorizontalAlignment="Left" Margin="53,96,0,0" VerticalAlignment="Top" Width="120" FlowDirection="RightToLeft" Click="IO_EnablePort0" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Port_1" Content="Port 1" HorizontalAlignment="Left" Margin="185,96,0,0" VerticalAlignment="Top" Width="120" Click="IO_EnablePort1" Grid.Row="1" Height="32"/>
+
+        <Button x:Name="bt_expi_Connect" Content="Connect to Expander Pi" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Click="bt_expi_Connect_Click" Grid.Row="1" Height="32" Width="193"/>
+        <RadioButton x:Name="radio_IO_Read" Content="Read" HorizontalAlignment="Left" Margin="101,402,0,0" VerticalAlignment="Top" Width="120" GroupName="IODirection" Checked="IO_SetDirection" Grid.Row="1" Height="32"/>
+        <RadioButton x:Name="radio_IO_Write" Content="Write" HorizontalAlignment="Left" Margin="200,402,0,0" VerticalAlignment="Top" Width="120" GroupName="IODirection" Checked="IO_SetDirection" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_Pullups" Content="Enable Pullup Resistors
+                  " HorizontalAlignment="Left" Margin="53,434,0,0" VerticalAlignment="Top" Width="196" Checked="IO_EnablePullups" Click="IO_EnablePullups" Grid.Row="1" Height="32"/>
+        <CheckBox x:Name="chk_IO_InvertPort" Content="Invert Port" HorizontalAlignment="Left" Margin="53,466,0,0" VerticalAlignment="Top" Width="120" Checked="IO_InvertPort" Click="IO_InvertPort" Grid.Row="1" Height="32"/>
+        
+        
+        
+        <TextBlock x:Name="label_ADCC1" HorizontalAlignment="Left" Margin="330,100,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 1:" VerticalAlignment="Top" Height="35" Width="104" FontSize="21.333"/>
+        <TextBlock x:Name="label_ADCC2" HorizontalAlignment="Left" Margin="330,130,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 2:" VerticalAlignment="Top" Height="35" Width="104" FontSize="21.333"/>
+        <TextBlock x:Name="label_ADCC3" HorizontalAlignment="Left" Margin="330,160,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 3:" VerticalAlignment="Top" Height="35" Width="104" FontSize="21.333"/>
+        <TextBlock x:Name="label_ADCC4" HorizontalAlignment="Left" Margin="330,190,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 4:" VerticalAlignment="Top" Height="35" Width="104" FontSize="21.333"/>
+        <TextBlock x:Name="txt_ADC1" HorizontalAlignment="Left" Margin="468,100,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" Height="35" Width="155" FontSize="21.333"/>
+        <TextBlock x:Name="label_ADCC5" HorizontalAlignment="Left" Margin="330,220,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 5:" VerticalAlignment="Top" Height="35" Width="104" FontSize="21.333"/>
+        <TextBlock x:Name="label_ADCC6" HorizontalAlignment="Left" Margin="330,250,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 6:" VerticalAlignment="Top" Height="35" Width="104" FontSize="21.333"/>
+        <TextBlock x:Name="label_ADCC7" HorizontalAlignment="Left" Margin="330,280,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 7:" VerticalAlignment="Top" Height="35" Width="104" FontSize="21.333"/>
+        <TextBlock x:Name="label_ADCC8" HorizontalAlignment="Left" Margin="330,310,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 8:" VerticalAlignment="Top" Height="35" Width="104" FontSize="21.333"/>
+        
+        <TextBlock x:Name="txt_ADC2" HorizontalAlignment="Left" Margin="468,130,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" Height="35" Width="155" FontSize="21.333"/>        
+        <TextBlock x:Name="txt_ADC3" HorizontalAlignment="Left" Margin="468,160,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" Height="35" Width="155" FontSize="21.333"/>        
+        <TextBlock x:Name="txt_ADC4" HorizontalAlignment="Left" Margin="468,190,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" Height="35" Width="155" FontSize="21.333"/>        
+        <TextBlock x:Name="txt_ADC5" HorizontalAlignment="Left" Margin="468,220,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" Height="35" Width="155" FontSize="21.333"/>        
+        <TextBlock x:Name="txt_ADC6" HorizontalAlignment="Left" Margin="468,250,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" Height="35" Width="155" FontSize="21.333"/>        
+        <TextBlock x:Name="txt_ADC7" HorizontalAlignment="Left" Margin="468,280,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" Height="35" Width="155" FontSize="21.333"/>        
+        <TextBlock x:Name="txt_ADC8" HorizontalAlignment="Left" Margin="468,310,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0.00V" VerticalAlignment="Top" Height="35" Width="155" FontSize="21.333"/>
+        
+        
+        <TextBlock x:Name="label_DACC1" HorizontalAlignment="Left" Margin="623,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 1:" VerticalAlignment="Top" Height="35" Width="110" FontSize="21.333"/>
+        <TextBlock x:Name="label_DACC2" HorizontalAlignment="Left" Margin="623,145,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Channel 2:" VerticalAlignment="Top" Height="35" Width="110" FontSize="21.333"/>
+        <TextBlock x:Name="label_DACGain" HorizontalAlignment="Left" Margin="623,188,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Gain:" VerticalAlignment="Top" Height="35" Width="110" FontSize="21.333"/>
+
+        <Slider x:Name="slider_DACChannel1" HorizontalAlignment="Left" Margin="754,97,0,0" Grid.Row="1" VerticalAlignment="Top" Width="202" Maximum="2.047" Value="0" ValueChanged="DACChannel1_Changed" SmallChange="0.01" LargeChange="0.1" StepFrequency="0.01"/>
+        <Slider x:Name="slider_DACChannel2" HorizontalAlignment="Left" Margin="754,142,0,0" Grid.Row="1" VerticalAlignment="Top" Width="202" Maximum="2.047" Value="0" ValueChanged="DACChannel2_Changed" SmallChange="0.01" LargeChange="0.1" StepFrequency="0.01"/>
+
+        <RadioButton x:Name="radio_DACGain1" Content="1" HorizontalAlignment="Left" Margin="754,190,0,0" VerticalAlignment="Top" Width="100" GroupName="DACDirection" Grid.Row="1" Height="32" Checked="radio_DACGain1_Checked" />
+        <RadioButton x:Name="radio_DACGain2" Content="2" HorizontalAlignment="Left" Margin="857,190,0,0" VerticalAlignment="Top" Width="99" GroupName="DACDirection" Grid.Row="1" Height="32" Checked="radio_DACGain2_Checked" />
+               
+        
+        <TextBlock x:Name="label_SetDate" HorizontalAlignment="Left" Margin="330,428,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Set Date:" VerticalAlignment="Top" FontSize="22"/>
+                
+        <TextBlock x:Name="txt_ClockOut" HorizontalAlignment="Left" Margin="412,382,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="462" FontSize="21.333" Grid.Row="1" Height="28"/>
+        <DatePicker x:Name="picker_NewDate" HorizontalAlignment="Left" Margin="425,430,0,0" Grid.Row="1" VerticalAlignment="Top" Width="220"/>
+        <TimePicker x:Name="picker_NewTime" HorizontalAlignment="Left" Margin="734,430,0,0" Grid.Row="1" VerticalAlignment="Top" ClockIdentifier="12HourClock" Width="192"/>
+        <Button x:Name="bt_SetDate" Content="Set" HorizontalAlignment="Left" Margin="843,388,0,0" VerticalAlignment="Top" Click="bt_SetDate_Click" Grid.Row="1" Height="32" Width="133" Background="#33FFFFFF" RequestedTheme="Light" BorderBrush="#FF434343"/>
+        
+        
+        <CheckBox x:Name="cb_sqw" Content="SQW Output" HorizontalAlignment="Left" Margin="330,484,0,0" Grid.Row="1" VerticalAlignment="Top" Click="cb_sqw_clicked"/>
+        
+        <TextBlock x:Name="label_Frequency" HorizontalAlignment="Left" Margin="468,487,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Frequency:" VerticalAlignment="Top" FontSize="18                    "/>
+        <RadioButton x:Name="radio_frequency1" Content="1Hz" HorizontalAlignment="Left" Margin="571,484,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="radio_frequency" Checked="radio_frequency_clicked" IsChecked="True"/>
+        <RadioButton x:Name="radio_frequency2" Content="4.096KHz" HorizontalAlignment="Left" Margin="646,484,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="radio_frequency" Checked="radio_frequency_clicked"/>
+        <RadioButton x:Name="radio_frequency3" Content="8.192KHz" HorizontalAlignment="Left" Margin="762,484,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="radio_frequency" Checked="radio_frequency_clicked"/>
+        <RadioButton x:Name="radio_frequency4" Content="32.768KHz" HorizontalAlignment="Left" Margin="876,484,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="radio_frequency" Checked="radio_frequency_clicked"/>
+    </Grid>
+</Page>

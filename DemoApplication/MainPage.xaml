@@ -6,12 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Width="1280" Height="720">
+    <Page.Resources>
+        <ImageBrush x:Key="ADCDifferentialPiImageBrush" ImageSource="Assets/adcdifferentialpi.png" Stretch="UniformToFill"/>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.Resources>
             <ImageBrush x:Key="ADCPiImageBrush" ImageSource="Assets/adcpiplus.png" Stretch="UniformToFill"/>
             <ImageBrush x:Key="ADCDACPiImageBrush" ImageSource="Assets/adcdacpi.png" Stretch="UniformToFill"/>
             <ImageBrush x:Key="ADCDifferentialPiImageBrush" ImageSource="Assets/adcdifferentialpi.png" Stretch="UniformToFill"/>
+            <ImageBrush x:Key="ExpanderPiImageBrush" ImageSource="Assets/expanderpi.png" Stretch="UniformToFill"/>
             <ImageBrush x:Key="IOPiImageBrush" ImageSource="Assets/iopiplus.png" Stretch="UniformToFill"/>
             <ImageBrush x:Key="RTCPiImageBrush" ImageSource="Assets/rtcpiplus.png" Stretch="UniformToFill"/>
             <ImageBrush x:Key="ServoPiImageBrush" ImageSource="Assets/servopi.png" Stretch="UniformToFill"/>
@@ -27,7 +31,13 @@
         <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="690,585,0,0" TextWrapping="Wrap" Text="Servo Pi / Sero Pi Zero" VerticalAlignment="Top" FontSize="21.333"/>
         <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="66,309,0,0" TextWrapping="Wrap" Text="ADC Pi / ADC Pi Plus" VerticalAlignment="Top" FontSize="21.333"/>
         <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="397,309,0,0" TextWrapping="Wrap" Text="ADCDAC Pi Zero" VerticalAlignment="Top" FontSize="21.333"/>
-        <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="666,309,0,0" TextWrapping="Wrap" Text="ADC Differential Pi / Delta-Sigma Pi" VerticalAlignment="Top" FontSize="21.333"/>
+        <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="666,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="21.333" Height="66">
+            <Run Text="ADC Differential Pi"/>
+            <LineBreak/>
+            <Run Text="Delta-Sigma Pi"/>
+        </TextBlock>
         <TextBlock x:Name="textBlock_Copy5" HorizontalAlignment="Left" Margin="60,50,0,0" TextWrapping="Wrap" Text="Select your Raspberry Pi expansion board" VerticalAlignment="Top" FontSize="28"/>
+        <Button x:Name="bt_expanderpi"  Background="{StaticResource ExpanderPiImageBrush}" HorizontalAlignment="Left" Margin="884,104,0,0" VerticalAlignment="Top" Height="200" Width="200"  Click="expanderpi_Click"/>
+        <TextBlock x:Name="textBlock_Copy6" HorizontalAlignment="Left" Margin="918,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="21.333" Height="66" Text="Expander Pi" />
     </Grid>
 </Page>

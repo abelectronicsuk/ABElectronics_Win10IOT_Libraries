@@ -23,6 +23,11 @@ namespace ABElectronics_Win10IOT_Libraries
         /// </summary>
         public bool IsConnected { get; private set; }
 
+        // Flag: Has Dispose already been called?
+        bool disposed = false;
+        // Instantiate a SafeHandle instance.
+        System.Runtime.InteropServices.SafeHandle handle = new Microsoft.Win32.SafeHandles.SafeFileHandle(IntPtr.Zero, true);
+
         /// <summary>
         ///     Open a connection to the ADCDAC Pi.
         /// </summary>
@@ -204,17 +209,39 @@ namespace ABElectronics_Win10IOT_Libraries
         }
 
         /// <summary>
-        ///     Close the devices.
+        ///     Dispose of the resources
         /// </summary>
         public void Dispose()
         {
-            adc?.Dispose();
-            adc = null;
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
-            dac?.Dispose();
-            dac = null;
+        /// <summary>
+        /// Protected implementation of Dispose pattern
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
 
-            IsConnected = false;
+            if (disposing)
+            {
+                handle.Dispose();
+                // Free any other managed objects here.
+                adc?.Dispose();
+                adc = null;
+
+                dac?.Dispose();
+                dac = null;
+
+                IsConnected = false;
+            }
+
+            // Free any unmanaged objects here.
+            //
+            disposed = true;
         }
     }
 }

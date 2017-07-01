@@ -29,6 +29,9 @@ The library is available from [NuGet](https://www.nuget.org/packages/ABElectroni
 ### Delta Sigma Pi and ADC Differential Pi ###
 - RP A+, B+, 2 & 3: <https://www.abelectronics.co.uk/p/65/ADC-Differential-Pi-Raspberry-Pi-Analogue-to-Digital-converter>
 
+### Expander Pi ###
+- RP Zero, A+, B+, 2 & 3: <https://www.abelectronics.co.uk/p/50/Expander-Pi>
+
 ### IO Pi, IO Pi Zero and IO Pi Plus ###
 - RP Pi Zero: <https://www.abelectronics.co.uk/p/71/IO-Pi-Zero>*
 - RP A+, B+, 2 & 3: <https://www.abelectronics.co.uk/p/54/IO-Pi-Plus>

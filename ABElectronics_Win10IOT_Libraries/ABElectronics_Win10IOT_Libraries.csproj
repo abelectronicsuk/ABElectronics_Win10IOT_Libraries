@@ -43,6 +43,7 @@
     <Compile Include="ADCDACPi.cs" />
     <Compile Include="ADCPi.cs" />
     <Compile Include="ADCDifferentialPi.cs" />
+    <Compile Include="ExpanderPi.cs" />
     <Compile Include="IOPi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RTCPi.cs" />

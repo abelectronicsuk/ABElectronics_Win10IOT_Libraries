@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>abelectronics.win10iot.libraries</id>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <title>AB Electronics UK Windows 10 IOT .net class libraries</title>
     <authors>AB Electronics UK</authors>
     <owners>AB Electronics UK</owners>
@@ -10,8 +10,8 @@
     <projectUrl>https://github.com/abelectronicsuk/ABElectronics_Win10IOT_Libraries</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Windows 10 IOT .net class libraries for the Raspberry Pi expansion boards from AB Electronics UK</description>
-    <releaseNotes>First NuGet release.</releaseNotes>
-    <copyright>Copyright 2016</copyright>
-    <tags>raspberry pi adc dac servo io pi rtc</tags>
+    <releaseNotes>Added Expander Pi class</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>raspberry pi adc dac servo io pi rtc expander</tags>
   </metadata>
 </package>

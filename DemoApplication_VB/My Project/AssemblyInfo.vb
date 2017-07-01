@@ -15,5 +15,5 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyCopyright("Copyright ©  2016")>
 <Assembly: AssemblyTrademark("")>
 
-<Assembly: AssemblyVersion("1.0.*")>
+<Assembly: AssemblyVersion("1.1.*")>
 <Assembly: ComVisible(False)>

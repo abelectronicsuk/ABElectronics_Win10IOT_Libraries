@@ -144,6 +144,11 @@ namespace ABElectronics_Win10IOT_Libraries
         private byte portb_pullup; // port a pull-up resistors
         private byte portbval; // port b value
 
+        // Flag: Has Dispose already been called?
+        bool disposed = false;
+        // Instantiate a SafeHandle instance.
+        System.Runtime.InteropServices.SafeHandle handle = new Microsoft.Win32.SafeHandles.SafeFileHandle(IntPtr.Zero, true);
+
         /// <summary>
         ///     Create an instance of an IOPi bus.
         /// </summary>
@@ -195,6 +200,9 @@ namespace ABElectronics_Win10IOT_Libraries
                 i2cbus = await I2cDevice.FromIdAsync(dis[0].Id, settings); // Create an I2cDevice with our selected bus controller and I2C settings
                 if (i2cbus != null)
                 {
+                    // Set IsConnected to true and fire the Connected event handler
+                    IsConnected = true;
+
                     // i2c bus is connected so set up the initial configuration for the IO Pi
                     helper.WriteI2CByte(i2cbus, IOCON, config);
                     portaval = helper.ReadI2CByte(i2cbus, GPIOA);
@@ -206,8 +214,7 @@ namespace ABElectronics_Win10IOT_Libraries
                     InvertPort(0, 0x00);
                     InvertPort(1, 0x00);
 
-                    // Set IsConnected to true and fire the Connected event handler
-                    IsConnected = true;
+                    
 
                     // Fire the Connected event handler
                     Connected?.Invoke(this, EventArgs.Empty);
@@ -680,15 +687,38 @@ namespace ABElectronics_Win10IOT_Libraries
             }
         }
 
+        
         /// <summary>
-        ///     Dispose of the I2C device.
+        ///     Dispose of the resources
         /// </summary>
         public void Dispose()
         {
-            i2cbus?.Dispose();
-            i2cbus = null;
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
-            IsConnected = false;
+        /// <summary>
+        /// Protected implementation of Dispose pattern
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+
+            if (disposing)
+            {
+                handle.Dispose();
+                // Free any other managed objects here.
+                i2cbus?.Dispose();
+                i2cbus = null;
+
+                IsConnected = false;
+            }
+
+            // Free any unmanaged objects here.
+            //
+            disposed = true;
         }
     }
 }

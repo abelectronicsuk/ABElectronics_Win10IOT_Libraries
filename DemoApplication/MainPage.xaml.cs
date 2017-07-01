@@ -44,6 +44,11 @@ namespace DemoApplication
             rootFrame.Navigate(typeof(ADCDifferentialPi));
         }
 
+        private void expanderpi_Click(object sender, RoutedEventArgs e)
+        {
+            rootFrame.Navigate(typeof(ExpanderPi));
+        }
+
         private void rtc_Click(object sender, RoutedEventArgs e)
         {
             rootFrame.Navigate(typeof(RTCPi));

@@ -16,6 +16,10 @@ Public NotInheritable Class MainPage
         rootFrame.Navigate(GetType(ADCDifferentialPi))
     End Sub
 
+    Private Sub expanderpi_Click(sender As Object, e As RoutedEventArgs)
+        rootFrame.Navigate(GetType(ExpanderPi))
+    End Sub
+
     Private Sub rtc_Click(sender As Object, e As RoutedEventArgs)
         rootFrame.Navigate(GetType(RTCPi))
     End Sub

@@ -16,6 +16,10 @@ namespace ABElectronics_Win10IOT_Libraries
         private Byte[] __adcreading = {0, 0, 0, 0};
         private byte bitrate = 18; // current bit rate
 
+        // Flag: Has Dispose already been called?
+        bool disposed = false;
+        // Instantiate a SafeHandle instance.
+        System.Runtime.InteropServices.SafeHandle handle = new Microsoft.Win32.SafeHandles.SafeFileHandle(IntPtr.Zero, true);
 
         // internal variables
 
@@ -454,17 +458,39 @@ namespace ABElectronics_Win10IOT_Libraries
         }
 
         /// <summary>
-        ///     Dispose of the <see cref="ADCDifferentialPi" /> instance.
+        ///     Dispose of the resources
         /// </summary>
         public void Dispose()
         {
-            i2cbus1?.Dispose();
-            i2cbus1 = null;
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
-            i2cbus2?.Dispose();
-            i2cbus2 = null;
+        /// <summary>
+        /// Protected implementation of Dispose pattern
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
 
-            IsConnected = false;
+            if (disposing)
+            {
+                handle.Dispose();
+                // Free any other managed objects here.
+                i2cbus1?.Dispose();
+                i2cbus1 = null;
+
+                i2cbus2?.Dispose();
+                i2cbus2 = null;
+
+                IsConnected = false;
+            }
+
+            // Free any unmanaged objects here.
+            //
+            disposed = true;
         }
     }
 }

@@ -81,6 +81,7 @@ namespace DemoApplication
         private void bt_Back_Clicked(object sender, RoutedEventArgs e)
         {
             // go back to the main page
+            adcdac.Dispose();
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(MainPage));
         }

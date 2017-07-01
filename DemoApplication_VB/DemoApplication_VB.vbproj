@@ -16,6 +16,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
     <PackageCertificateKeyFile>DemoApplication_VB_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>506A2A005D4D898A0F64F5A3DEB28D0E0445E45F</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -97,6 +98,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="DemoApplication_VB_TemporaryKey.pfx" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +113,9 @@
     </Compile>
     <Compile Include="App.xaml.vb">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExpanderPi.xaml.vb">
+      <DependentUpon>ExpanderPi.xaml</DependentUpon>
     </Compile>
     <Compile Include="IOPi.xaml.vb">
       <DependentUpon>IOPi.xaml</DependentUpon>
@@ -130,13 +135,13 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="DemoApplication_VB_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\adcdacpi.png" />
     <Content Include="Assets\adcdifferentialpi.png" />
     <Content Include="Assets\adcpiplus.png" />
     <Content Include="Assets\deltasigmapi.png" />
+    <Content Include="Assets\expanderpi.png" />
     <Content Include="Assets\iopiplus.png" />
     <Content Include="Assets\rtcpiplus.png" />
     <Content Include="Assets\servopi.png" />
@@ -165,6 +170,10 @@
     <Page Include="ADCPi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExpanderPi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="IOPi.xaml">
       <SubType>Designer</SubType>

@@ -11,7 +11,7 @@ namespace ABElectronics_Win10IOT_Libraries
     ///     Class for controlling the Servo Pi expansion board from AB Electronics UK
     ///     Based on the PCA9685 PWM controller IC from NXT.
     /// </summary>
-    public class ServoPi
+    public class ServoPi : IDisposable
     {
         private readonly byte ALL_LED_OFF_H = 0xFD;
         private readonly byte ALL_LED_OFF_L = 0xFC;
@@ -31,6 +31,11 @@ namespace ABElectronics_Win10IOT_Libraries
         private readonly byte MODE1 = 0x00;
         private GpioPin pin;
         private readonly byte PRE_SCALE = 0xFE;
+
+        // Flag: Has Dispose already been called?
+        bool disposed = false;
+        // Instantiate a SafeHandle instance.
+        System.Runtime.InteropServices.SafeHandle handle = new Microsoft.Win32.SafeHandles.SafeFileHandle(IntPtr.Zero, true);
 
         /// <summary>
         ///     Create an instance of a Servo Pi bus.
@@ -234,13 +239,36 @@ namespace ABElectronics_Win10IOT_Libraries
         }
 
         /// <summary>
-        ///     Dispose of the Servo Pi device.
+        ///     Dispose of the resources
         /// </summary>
-        /// <example>servopi.Dispose();</example>
         public void Dispose()
         {
-            i2cbus.Dispose();
-            IsConnected = false;
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Protected implementation of Dispose pattern
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+
+            if (disposing)
+            {
+                handle.Dispose();
+                // Free any other managed objects here.
+                i2cbus?.Dispose();
+                i2cbus = null;
+
+                IsConnected = false;
+            }
+
+            // Free any unmanaged objects here.
+            //
+            disposed = true;
         }
     }
 }

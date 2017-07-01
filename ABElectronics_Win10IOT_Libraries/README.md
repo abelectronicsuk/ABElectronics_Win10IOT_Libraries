@@ -1,7 +1,7 @@
 AB Electronics Windows 10 IOT Libraries
 =====
 
-Windows 10 IOT Library to use with Raspberry Pi expansion boards from http://www.abelectronics.co.uk
+Windows 10 IOT Library to use with Raspberry Pi expansion boards from https://www.abelectronics.co.uk
 
 Installation instructions for the Windows 10 IOT release are available on https://ms-iot.github.io/content/en-US/GetStarted.htm
 
@@ -9,10 +9,10 @@ We have GitHub pages for this library with individual pages for each class and e
 
 The AB Electronics Windows 10 IOT Library contains the following classes:
 
-##ADCDACPi
-This class contains methods for use with the ADC DAC Pi from  https://www.abelectronics.co.uk/products/3/Raspberry-Pi/39/ADC-DAC-Pi-Raspberry-Pi-ADC-and-DAC-expansion-board
+# ADCDACPi
+This class contains methods for use with the ADC DAC Pi and ADC DAC Pi Zero from  https://www.abelectronics.co.uk/p/74/ADC-DAC-Pi-Zero-Raspberry-Pi-ADC-and-DAC-expansion-board
 
-###Methods:
+## Methods:
 
 ```
 ReadADCVoltage(byte channel)
@@ -48,7 +48,7 @@ SetDACRaw(byte channel, int value)
 Set the raw value from the selected channel on the DAC  
 **Parameters:** channel - 1 or 2,value int between 0 and 4095  
 **Returns:** null 
-###Usage
+## Usage
 
 To use the ADCDACPi library in your code you must first import the library dll:
 ```
@@ -81,49 +81,50 @@ Set the DAC voltage on channel 2 to 1.5 volts
 adcdac.SetDACVoltage(2, 1.5);
 ```
 
-##ADCPi 
-This class contains methods for use with the  ADC Pi from  http://www.abelectronics.co.uk/products/3/Raspberry-Pi/17/ADC-Pi-V2---Raspberry-Pi-Analogue-to-Digital-converter
+# ADCPi 
+This class contains methods for use with the  ADC Pi, ADC Pi Plus and ADC Pi Zero from  https://www.abelectronics.co.uk/p/56/ADC-Pi-Plus-Raspberry-Pi-Analogue-to-Digital-converter  
+https://www.abelectronics.co.uk/p/69/ADC-Pi-Zero-Raspberry-Pi-Analogue-to-Digital-converter  
 
-###Methods:
+## Methods:
 ```
 Connect() 
 ```
 Connect to the I2C device  
-**Parameters:** none
-**Returns:** null
+**Parameters:** none  
+**Returns:** null  
 
 ```
 IsConnected() 
 ```
-Check if the device is connected
-**Parameters:** none
-**Returns:** boolean
+Check if the device is connected  
+**Parameters:** none  
+**Returns:** boolean  
 ```
 Dispose() 
 ```
 Dispose of the active I2C device  
-**Parameters:** none
-**Returns:** null
+**Parameters:** none  
+**Returns:** null  
 ```
 ReadVoltage(byte channel)
 ```
 Read the voltage from the selected channel  
-**Parameters:** channel as int - 1 to 8 
-**Returns:** number as double between 0 and 5.0
+**Parameters:** channel as int - 1 to 8  
+**Returns:** number as double between 0 and 5.0  
 
 ```
 ReadRaw(byte channel)
 ```
 Read the raw int value from the selected channel  
-**Parameters:** channel as int - 1 to 8 
-**Returns:** raw integer value from ADC buffer
+**Parameters:** channel as int - 1 to 8  
+**Returns:** raw integer value from ADC buffer  
 
 ```
 SetPGA(byte gain)
 ```
 Set the gain of the PDA on the chip  
 **Parameters:** gain as int -  1, 2, 4, 8  
-**Returns:** null
+**Returns:** null  
 
 ```
 SetBitRate(byte rate)
@@ -143,7 +144,7 @@ Set the conversion mode for the adc
 **Parameters:** mode as boolean -  false = One-shot conversion, true = Continuous conversion  
 **Returns:** null
 
-###Usage
+## Usage
 
 To use the ADC Pi library in your code you must first import the library dll:
 ```
@@ -175,44 +176,44 @@ readvalue = adc.ReadVoltage(1);
 ```
 
 
-##DeltaSigmaPi
-This class contains methods for use with the Delta Sigma Pi from http://www.abelectronics.co.uk/products/3/Raspberry-Pi/14/Delta-Sigma-Pi-18-bit-Analogue-to-Digital-converter
+# ADCDifferentialPi
+This class contains methods for use with the ADC Differential Pi from https://www.abelectronics.co.uk/p/65/ADC-Differential-Pi-Raspberry-Pi-Analogue-to-Digital-converter
 
-###Methods:
+## Methods:
 ```
 Connect() 
 ```
 Connect to the I2C device  
-**Parameters:** none
-**Returns:** null
+**Parameters:** none  
+**Returns:** null  
 
 ```
 IsConnected() 
 ```
 Check if the device is connected
-**Parameters:** none
-**Returns:** boolean
+**Parameters:** none  
+**Returns:** boolean  
 
 ```
 Dispose() 
 ```
 Dispose of the active I2C device  
-**Parameters:** none
-**Returns:** null
+**Parameters:** none  
+**Returns:** null  
 
 ```
 ReadVoltage(byte channel)
 ```
 Read the voltage from the selected channel  
-**Parameters:** channel as int - 1 to 8 
-**Returns:** number as double between 0 and 5.0
+**Parameters:** channel as int - 1 to 8  
+**Returns:** number as double between 0 and 5.0  
 
 ```
 ReadRaw(byte channel)
 ```
 Read the raw int value from the selected channel  
-**Parameters:** channel as int - 1 to 8 
-**Returns:** raw integer value from ADC buffer
+**Parameters:** channel as int - 1 to 8  
+**Returns:** raw integer value from ADC buffer  
 
 ```
 SetPGA(byte gain)
@@ -239,7 +240,7 @@ Set the conversion mode for the adc
 **Parameters:** mode as boolean -  false = One-shot conversion, true = Continuous conversion  
 **Returns:** null
 
-###Usage
+### Usage
 
 To use the Delta Sigma Pi library in your code you must first import the library dll:
 ```
@@ -270,64 +271,329 @@ double readvalue = 0;
 readvalue = adc.ReadVoltage(1);
 ```
 
-##IOPi
-This class contains methods for use with the IO Pi from http://www.abelectronics.co.uk/products/3/Raspberry-Pi/18/IO-Pi-32-Channel-Port-Expander-for-the-Raspberry-Pi
+# ExpanderPi
+This class contains methods to use with the Expander Pi from
+https://www.abelectronics.co.uk/p/50/Expander-Pi
 
-###Methods:
+## Methods
 ```
 Connect() 
 ```
-Connect to the I2C device  
-**Parameters:** none
-**Returns:** null
+Connect to the Expander Pi  
+**Parameters:** none  
+**Returns:** null  
 
 ```
 IsConnected() 
 ```
 Check if the device is connected
-**Parameters:** none
-**Returns:** boolean
+**Parameters:** none  
+**Returns:** boolean  
 
 ```
 Dispose() 
 ```
-Dispose of the active I2C device  
-**Parameters:** none
-**Returns:** null
+Dispose of the active device  
+**Parameters:** none  
+**Returns:** null  
+
+### ADC Methods
 
 ```
-SetPinDirection(byte pin, bool direction)
+ADCReadVoltage(byte channel, byte mode) 
+```
+Read the voltage from the selected channel on the ADC.  
+**Parameters:** channel (1 to 8)  
+**Parameters:** mode (1 = Single Ended Input, 2 = Differential Input)  
+**Returns:** voltage  
+
+```
+ADCReadRaw(byte channel, byte mode)
+```
+Read the raw value from the selected channel on the ADC.  
+**Parameters:** channel (1 to 8)  
+**Parameters:** mode (1 = Single Ended Input, 2 = Differential Input)  
+**Returns:** voltage  
+
+```
+ADCSetRefVoltage(double voltage) 
+```
+Set the reference voltage for the analogue to digital converter.  
+The Expander Pi contains an onboard 4.096V voltage reference.  
+If you want to use an external reference between 0V and 5V, disconnect the jumper J1 and connect your reference voltage to the Vref pin.  
+**Parameters:** voltage  
+**Returns:** null  
+
+### DAC Methods
+
+```
+DACSetVoltage(byte channel, double voltage, byte gain)
+```
+Set the voltage for the selected channel on the DAC.  
+**Parameters:** channel (1 or 2)  
+**Parameters:** voltage (Voltage will be between 0 and 2.047V when gain is 1, 0 and 4.096V when gain is 2)  
+**Parameters:** gain (1 or 2)  
+**Returns:** null  
+
+```
+DACSetRaw(byte channel, short value, byte gain)
+```
+Set the voltage for the selected channel on the DAC.  
+Voltage will be between 0 and 2.047V when gain is 1, 0 and 4.096V when gain is 2  
+**Parameters:** channel (1 or 2)  
+**Parameters:** value (0 to 4095)  
+**Parameters:** gain (1 or 2)  
+**Returns:** null
+
+### IO Methods
+```
+IOSetPinDirection(byte pin, bool direction)  
 ```
 Sets the IO direction for an individual pin  
 **Parameters:** pin - 1 to 16, direction - true = input, false = output  
 **Returns:** null
 
 ```
-SetPortDirection(byte port, byte direction)
+IOSetPortDirection(byte port, byte direction)
 ```
 Sets the IO direction for the specified IO port  
 **Parameters:** port - 0 = pins 1 to 8, port 1 = pins 8 to 16, direction - true = input, false = output  
 **Returns:** null
 
 ```
-SetPinPullup(byte pin, bool value)
+IOSetPinPullup(byte pin, bool value)
 ```
 Set the internal 100K pull-up resistors for the selected IO pin  
 **Parameters:** pin - 1 to 16, value: true = Enabled, false = Disabled  
 **Returns:** null
 ```
-SetPortPullups(byte port, byte value)
+IOSetPortPullups(byte port, byte value)
 ```
 Set the internal 100K pull-up resistors for the selected IO port  
 **Parameters:** 0 = pins 1 to 8, 1 = pins 9 to 16, value: true = Enabled, false = Disabled   
 **Returns:** null
 
 ```
-WritePin(byte pin, bool value)
+IOWritePin(byte pin, bool value)
 ```
 Write to an individual pin 1 - 16  
 **Parameters:** pin - 1 to 16, value - true = Enabled, false = Disabled
 **Returns:** null
+```
+IOWritePort(byte port, byte value)
+```
+Write to all pins on the selected port  
+**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 8 to 16, value -  number between 0 and 255 or 0x00 and 0xFF  
+**Returns:** null
+```
+IOReadPin(byte pin)
+```
+Read the value of an individual pin 1 - 16   
+**Parameters:** pin: 1 to 16  
+**Returns:** false = logic level low, true = logic level high
+```
+IOReadPort(byte port)
+```
+Read all pins on the selected port  
+**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 8 to 16  
+**Returns:** number between 0 and 255 or 0x00 and 0xFF
+```
+IOInvertPort(byte port, byte polarity)
+```
+Invert the polarity of the pins on a selected port  
+**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 8 to 16, polarity - 0 = same logic state of the input pin, 1 = inverted logic state of the input pin  
+**Returns:** null
+
+```
+IOInvertPin(byte pin, bool polarity)
+```
+Invert the polarity of the selected pin  
+**Parameters:** pin - 1 to 16, polarity - false = same logic state of the input pin, true = inverted logic state of the input pin
+**Returns:** null
+```
+IOMirrorInterrupts(byte value)
+```
+Mirror Interrupts  
+**Parameters:** value - 1 = The INT pins are internally connected, 0 = The INT pins are not connected. INTA is associated with PortA and INTB is associated with PortB  
+**Returns:** null
+
+```
+IOSetInterruptPolarity(byte value)
+```
+This sets the polarity of the INT output pins  
+**Parameters:** 1 = Active - high. 0 = Active - low.  
+**Returns:** null  
+
+```
+IOSetInterruptType(byte port, byte value)
+```
+Sets the type of interrupt for each pin on the selected port  
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16, value: 1 = interrupt is fired when the pin matches the default value, 0 = the interrupt is fired on state change  
+**Returns:** null
+```
+IOSetInterruptDefaults(byte port, byte value)
+```
+These bits set the compare value for pins configured for interrupt-on-change on the selected port.  
+If the associated pin level is the opposite from the register bit, an interrupt occurs.    
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16, value: compare value  
+**Returns:** null
+```
+IOSetInterruptOnPort(byte port, byte value)
+```
+Enable interrupts for the pins on the selected port  
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16, value: number between 0 and 255 or 0x00 and 0xFF  
+**Returns:** null
+
+```
+IOSetInterruptOnPin(byte pin, bool value)
+```
+Enable interrupts for the selected pin  
+**Parameters:** pin - 1 to 16, value - true = interrupt disabled, false = interrupt enabled  
+**Returns:** null
+
+```
+IOReadInterruptStatus(byte port)
+```
+Enable interrupts for the selected pin  
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16  
+**Returns:** status
+
+```
+IOReadInterruptCapture(byte port)
+```
+Read the value from the selected port at the time of the last interrupt trigger  
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16  
+**Returns:** status
+```
+IOResetInterrupts()
+```
+Set the interrupts A and B to 0  
+**Parameters:** null  
+**Returns:** null
+
+### RTC Methods
+
+```
+RTCSetDate(DateTime date)
+```
+Set the date and time on the RTC   
+**Parameters:** date as DateTime
+**Returns:** null
+
+```
+RTCReadDate() 
+```
+Returns the date from the RTC in ISO 8601 format - YYYY-MM-DDTHH:MM:SS  
+**Returns:** date as DateTime  
+
+```
+RTCEnableOutput() 
+```
+Enable the square-wave output on the SQW pin.  
+**Returns:** null  
+
+```
+RTCDisableOutput()
+```
+Disable the square-wave output on the SQW pin.   
+**Returns:** null
+
+```
+RTCSetFrequency(byte frequency)
+```
+Set the frequency for the square-wave output on the SQW pin.   
+**Parameters:** frequency - options are: 1 = 1Hz, 2 = 4.096KHz, 3 = 8.192KHz, 4 = 32.768KHz   
+**Returns:** null
+
+## Usage:
+
+To use the Expander Pi library in your code you must first import the library dll:
+```
+using ABElectronics_Win10IOT_Libraries;
+```
+Next you must initialise the io class:
+```
+ABElectronics_Win10IOT_Libraries.IOPi expi = new ABElectronics_Win10IOT_Libraries.ExpanderPi();
+```
+
+Next we need to connect to the device and wait for the connection before setting the digital IO ports to be inputs
+```
+expi.Connect();
+
+while (!expi.IsConnected)
+{
+}
+expi.IOSetPortDirection(0, 0xFF);
+expi.IOSetPortDirection(1, 0xFF);
+
+```
+
+You can now read the input status from pin 1 on the digital IO bus with:
+```
+bool value = bus1.IOReadPin(1);
+```
+
+
+# IOPi
+This class contains methods for use with the IO Pi, IO Pi Plus and IO Pi Zero from  
+https://www.abelectronics.co.uk/p/54/IO-Pi-Plus  
+https://www.abelectronics.co.uk/p/71/IO-Pi-Zero  
+
+## Methods:
+```
+Connect() 
+```
+Connect to the I2C device  
+**Parameters:** none  
+**Returns:** null  
+
+```
+IsConnected() 
+```
+Check if the device is connected  
+**Parameters:** none  
+**Returns:** boolean  
+
+```
+Dispose() 
+```
+Dispose of the active I2C device  
+**Parameters:** none  
+**Returns:** null  
+
+```
+SetPinDirection(byte pin, bool direction)
+```
+Sets the IO direction for an individual pin  
+**Parameters:** pin - 1 to 16, direction - true = input, false = output  
+**Returns:** null  
+
+```
+SetPortDirection(byte port, byte direction)
+```
+Sets the IO direction for the specified IO port  
+**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 8 to 16, direction - true = input, false = output  
+**Returns:** null  
+
+```
+SetPinPullup(byte pin, bool value)
+```
+Set the internal 100K pull-up resistors for the selected IO pin  
+**Parameters:** pin - 1 to 16, value: true = Enabled, false = Disabled  
+**Returns:** null  
+```
+SetPortPullups(byte port, byte value)
+```
+Set the internal 100K pull-up resistors for the selected IO port  
+**Parameters:** 0 = pins 1 to 8, 1 = pins 9 to 16, value: true = Enabled, false = Disabled  
+**Returns:** null  
+
+```
+WritePin(byte pin, bool value)
+```
+Write to an individual pin 1 - 16  
+**Parameters:** pin - 1 to 16, value - true = Enabled, false = Disabled  
+**Returns:** null  
 ```
 WritePort(byte port, byte value)
 ```
@@ -369,9 +635,9 @@ Mirror Interrupts
 ```
 SetInterruptPolarity(byte value)
 ```
-This sets the polarity of the INT output pins
-**Parameters:** 1 = Active - high. 0 = Active - low.
-**Returns:** null
+This sets the polarity of the INT output pins  
+**Parameters:** 1 = Active - high. 0 = Active - low.  
+**Returns:** null  
 
 ```
 SetInterruptType(byte port, byte value)
@@ -419,7 +685,7 @@ ResetInterrupts()
 Set the interrupts A and B to 0  
 **Parameters:** null  
 **Returns:** null
-###Usage
+### Usage
 
 To use the IO Pi library in your code you must first import the library dll:
 ```
@@ -448,65 +714,66 @@ You can now read the input status from channel 1 with:
 bool value = bus1.ReadPin(1);
 ```
 
-##RTCPi
-This class contains methods for use with the RTC Pi from https://www.abelectronics.co.uk/products/3/Raspberry-Pi/15/RTC-Pi
+# RTCPi
+This class contains methods for use with the RTC Pi, RTC Pi Plus and RTC Pi Zero from https://www.abelectronics.co.uk/p/52/RTC-Pi-Plus  
+https://www.abelectronics.co.uk/p/70/RTC-Pi-Zero  
 
-###Methods:
+## Methods:
 ```
 Connect() 
 ```
 Connect to the I2C device  
-**Parameters:** none
-**Returns:** null
+**Parameters:** none  
+**Returns:** null  
 
 ```
 IsConnected() 
 ```
-Check if the device is connected
-**Parameters:** none
-**Returns:** boolean
+Check if the device is connected  
+**Parameters:** none  
+**Returns:** boolean  
 
 ```
 Dispose() 
 ```
 Dispose of the active I2C device  
-**Parameters:** none
-**Returns:** null
+**Parameters:** none  
+**Returns:** null  
 
 ```
 SetDate(DateTime date)
 ```
-Set the date and time on the RTC   
-**Parameters:** date as DateTime
-**Returns:** null
+Set the date and time on the RTC  
+**Parameters:** date as DateTime  
+**Returns:** null  
 
 ```
 ReadDate() 
 ```
-Returns the date from the RTC in ISO 8601 format - YYYY-MM-DDTHH:MM:SS   
-**Returns:** date as DateTime
+Returns the date from the RTC in ISO 8601 format - YYYY-MM-DDTHH:MM:SS  
+**Returns:** date as DateTime  
 
 
 ```
 EnableOutput() 
 ```
 Enable the square-wave output on the SQW pin.  
-**Returns:** null
+**Returns:** null  
 
 ```
 DisableOutput()
 ```
 Disable the square-wave output on the SQW pin.   
-**Returns:** null
+**Returns:** null  
 
 ```
 SetFrequency(byte frequency)
 ```
 Set the frequency for the square-wave output on the SQW pin.   
-**Parameters:** frequency - options are: 1 = 1Hz, 2 = 4.096KHz, 3 = 8.192KHz, 4 = 32.768KHz   
-**Returns:** null
+**Parameters:** frequency - options are: 1 = 1Hz, 2 = 4.096KHz, 3 = 8.192KHz, 4 = 32.768KHz  
+**Returns:** null  
 
-###Usage
+## Usage
 
 To use the RTC Pi library in your code you must first import the library dll:
 ```
@@ -537,76 +804,77 @@ DateTime value = rtc.ReadDate();
 ```
 
 
-##ServoPi
-This class contains methods for use with the ServoPi from http://www.abelectronics.co.uk/products/3/Raspberry-Pi/44/Servo-Pi---PWM-Controller
+# ServoPi
+This class contains methods for use with the ServoPi and Servo PWM Pi Zero from  
+https://www.abelectronics.co.uk/p/72/Servo-PWM-Pi-Zero
 
-###Methods:
+## Methods:
 ```
 Connect() 
 ```
 Connect to the I2C device  
-**Parameters:** none
-**Returns:** null
+**Parameters:** none  
+**Returns:** null  
 
 ```
 IsConnected() 
 ```
-Check if the device is connected
-**Parameters:** none
-**Returns:** boolean
+Check if the device is connected  
+**Parameters:** none  
+**Returns:** boolean  
 
 ```
 Dispose() 
 ```
 Dispose of the active I2C device  
-**Parameters:** none
-**Returns:** null
+**Parameters:** none  
+**Returns:** null  
 
 ```
 SetPwmFreq(freq) 
 ```
-Set the PWM frequency
+Set the PWM frequency  
 **Parameters:** freq - required frequency  
-**Returns:** null
+**Returns:** null  
 
 ```
 SetPwm(channel, on, off) 
 ```
-Set the output on single channels
-**Parameters:** channel - 1 to 16, on - time period, off - time period
-**Returns:** null
+Set the output on single channels  
+**Parameters:** channel - 1 to 16, on - time period, off - time period  
+**Returns:** null  
 
 
 ```
 SetAllPwm( on, off) 
 ```
-Set the output on all channels
-**Parameters:** on - time period, off - time period
-**Returns:** null
+Set the output on all channels  
+**Parameters:** on - time period, off - time period  
+**Returns:** null  
 
 ```
 byte OutputEnablePin { get; set; }
 ```
-**Parameters:** Set the GPIO pin for the output enable function.
-**Returns:** null
-**Notes:** The default GPIO pin 4 is not supported in Windows 10 IOT so the OE pad will need to be connected to a different GPIO pin.
+**Parameters:** Set the GPIO pin for the output enable function.  
+**Returns:** null  
+**Notes:** The default GPIO pin 4 is not supported in Windows 10 IOT so the OE pad will need to be connected to a different GPIO pin.  
 
 
 ```
 OutputDisable()
 ```
-Disable the output via OE pin
-**Parameters:** null
-**Returns:** null
+Disable the output via OE pin  
+**Parameters:** null  
+**Returns:** null  
 
 ```
 OutputEnable()
 ```
-Enable the output via OE pin
-**Parameters:** null
-**Returns:** null
+Enable the output via OE pin  
+**Parameters:** null  
+**Returns:** null  
 
-###Usage
+## Usage
 
 To use the ServoPi Pi library in your code you must first import the library dll:
 ```
