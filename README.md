@@ -8,8 +8,6 @@ The AB Electronics Windows 10 IOT Library in the ABElectronics_Win10IOT_Librarie
 
 ## Installing The Library ##
 
-We have GitHub pages for this library and demos at <http://abelectronicsuk.github.io/ABElectronics_Win10IOT_Libraries/>.
-
 To install ABElectronics-Windows10-IOT, run the following command in the Package Manager Console 
 ``` powershell
 Install-Package ABElectronics_Win10IOT_Libraries 
@@ -44,11 +42,10 @@ The library is available from [NuGet](https://www.nuget.org/packages/ABElectroni
 
 > \* Note: Windows 10 IoT won't work on Pi Zero because it's ARMv6. ARMv7+ is required for Windows.
 
-## Demo and Test Applications ##
+## Demo Applications ##
 
 - The "**DemoApplication**" directory contains a sample GUI application to connect to each of the supported boards and get and set data.
-- ~~The "**Tests**" directory contains background task applications to use with the supported boards and the Raspberry Pi GPIO port.~~
-- The project/solution is written for Visual Studio 2015 running under Windows 10.
+-- The project/solution is written for Visual Studio 2015 running under Windows 10.
 
 If you are not using the Nuget version, you'll need to include the following dll file as a reference in your project:
 `ABElectronics_Win10IOT_Libraries\bin\ARM\Release\ABElectronics_Win10IOT_Libraries.dll`.
