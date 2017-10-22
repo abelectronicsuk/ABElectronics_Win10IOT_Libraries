@@ -357,7 +357,7 @@ Sets the IO direction for an individual pin
 IOSetPortDirection(byte port, byte direction)
 ```
 Sets the IO direction for the specified IO port  
-**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 8 to 16, direction - true = input, false = output  
+**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 9 to 16, direction - true = input, false = output  
 **Returns:** null
 
 ```
@@ -383,7 +383,7 @@ Write to an individual pin 1 - 16
 IOWritePort(byte port, byte value)
 ```
 Write to all pins on the selected port  
-**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 8 to 16, value -  number between 0 and 255 or 0x00 and 0xFF  
+**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 9 to 16, value -  number between 0 and 255 or 0x00 and 0xFF  
 **Returns:** null
 ```
 IOReadPin(byte pin)
@@ -395,13 +395,13 @@ Read the value of an individual pin 1 - 16
 IOReadPort(byte port)
 ```
 Read all pins on the selected port  
-**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 8 to 16  
+**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 9 to 16  
 **Returns:** number between 0 and 255 or 0x00 and 0xFF
 ```
 IOInvertPort(byte port, byte polarity)
 ```
 Invert the polarity of the pins on a selected port  
-**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 8 to 16, polarity - 0 = same logic state of the input pin, 1 = inverted logic state of the input pin  
+**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 9 to 16, polarity - 0 = same logic state of the input pin, 1 = inverted logic state of the input pin  
 **Returns:** null
 
 ```
@@ -428,20 +428,20 @@ This sets the polarity of the INT output pins
 IOSetInterruptType(byte port, byte value)
 ```
 Sets the type of interrupt for each pin on the selected port  
-**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16, value: 1 = interrupt is fired when the pin matches the default value, 0 = the interrupt is fired on state change  
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 9 to 16, value: number between 0 and 255 or 0x00 and 0xFF.  1 = interrupt is fired when the pin matches the default value, 0 = the interrupt is fired on state change  
 **Returns:** null
 ```
 IOSetInterruptDefaults(byte port, byte value)
 ```
 These bits set the compare value for pins configured for interrupt-on-change on the selected port.  
 If the associated pin level is the opposite from the register bit, an interrupt occurs.    
-**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16, value: compare value  
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 9 to 16, value: compare value  
 **Returns:** null
 ```
 IOSetInterruptOnPort(byte port, byte value)
 ```
 Enable interrupts for the pins on the selected port  
-**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16, value: number between 0 and 255 or 0x00 and 0xFF  
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 9 to 16, value: number between 0 and 255 or 0x00 and 0xFF  
 **Returns:** null
 
 ```
@@ -455,14 +455,14 @@ Enable interrupts for the selected pin
 IOReadInterruptStatus(byte port)
 ```
 Enable interrupts for the selected pin  
-**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16  
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 9 to 16  
 **Returns:** status
 
 ```
 IOReadInterruptCapture(byte port)
 ```
 Read the value from the selected port at the time of the last interrupt trigger  
-**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16  
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 9 to 16  
 **Returns:** status
 ```
 IOResetInterrupts()
@@ -572,7 +572,7 @@ Sets the IO direction for an individual pin
 SetPortDirection(byte port, byte direction)
 ```
 Sets the IO direction for the specified IO port  
-**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 8 to 16, direction - true = input, false = output  
+**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 9 to 16, direction - true = input, false = output  
 **Returns:** null  
 
 ```
@@ -598,7 +598,7 @@ Write to an individual pin 1 - 16
 WritePort(byte port, byte value)
 ```
 Write to all pins on the selected port  
-**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 8 to 16, value -  number between 0 and 255 or 0x00 and 0xFF  
+**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 9 to 16, value -  number between 0 and 255 or 0x00 and 0xFF  
 **Returns:** null
 ```
 ReadPin(byte pin)
@@ -610,13 +610,13 @@ Read the value of an individual pin 1 - 16
 ReadPort(byte port)
 ```
 Read all pins on the selected port  
-**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 8 to 16  
+**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 9 to 16  
 **Returns:** number between 0 and 255 or 0x00 and 0xFF
 ```
 InvertPort(byte port, byte polarity)
 ```
 Invert the polarity of the pins on a selected port  
-**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 8 to 16, polarity - 0 = same logic state of the input pin, 1 = inverted logic state of the input pin  
+**Parameters:** port - 0 = pins 1 to 8, port 1 = pins 9 to 16, polarity - 0 = same logic state of the input pin, 1 = inverted logic state of the input pin  
 **Returns:** null
 
 ```
@@ -643,20 +643,20 @@ This sets the polarity of the INT output pins
 SetInterruptType(byte port, byte value)
 ```
 Sets the type of interrupt for each pin on the selected port  
-**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16, value: 1 = interrupt is fired when the pin matches the default value, 0 = the interrupt is fired on state change  
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 9 to 16, value: number between 0 and 255 or 0x00 and 0xFF. 1 = interrupt is fired when the pin matches the default value, 0 = the interrupt is fired on state change  
 **Returns:** null
 ```
 SetInterruptDefaults(byte port, byte value)
 ```
 These bits set the compare value for pins configured for interrupt-on-change on the selected port.  
 If the associated pin level is the opposite from the register bit, an interrupt occurs.    
-**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16, value: compare value  
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 9 to 16, value: compare value  
 **Returns:** null
 ```
 SetInterruptOnPort(byte port, byte value)
 ```
 Enable interrupts for the pins on the selected port  
-**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16, value: number between 0 and 255 or 0x00 and 0xFF  
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 9 to 16, value: number between 0 and 255 or 0x00 and 0xFF  
 **Returns:** null
 
 ```
@@ -670,14 +670,14 @@ Enable interrupts for the selected pin
 ReadInterruptStatus(byte port)
 ```
 Enable interrupts for the selected pin  
-**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16  
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 9 to 16  
 **Returns:** status
 
 ```
 ReadInterruptCapture(byte port)
 ```
 Read the value from the selected port at the time of the last interrupt trigger  
-**Parameters:** port 0 = pins 1 to 8, port 1 = pins 8 to 16  
+**Parameters:** port 0 = pins 1 to 8, port 1 = pins 9 to 16  
 **Returns:** status
 ```
 ResetInterrupts()
