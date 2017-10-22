@@ -448,7 +448,7 @@ Enable interrupts for the pins on the selected port
 IOSetInterruptOnPin(byte pin, bool value)
 ```
 Enable interrupts for the selected pin  
-**Parameters:** pin - 1 to 16, value - true = interrupt disabled, false = interrupt enabled  
+**Parameters:** pin - 1 to 16, value - true = interrupt enabled, false = interrupt disabled  
 **Returns:** null
 
 ```
@@ -663,7 +663,7 @@ Enable interrupts for the pins on the selected port
 SetInterruptOnPin(byte pin, bool value)
 ```
 Enable interrupts for the selected pin  
-**Parameters:** pin - 1 to 16, value - true = interrupt disabled, false = interrupt enabled  
+**Parameters:** pin - 1 to 16, value - true = interrupt enabled, false = interrupt disabled  
 **Returns:** null
 
 ```
