@@ -532,6 +532,30 @@ namespace ABElectronics_Win10IOT_Libraries
         }
 
         /// <summary>
+        ///     This sets the INT output pins to be active driver or open-drain.
+        ///     Setting to open-drain overrides the interrupt polarity.
+        /// </summary>
+        /// <param name="value">1 = Open Drain. 0 = Active Driver.</param>
+        public void SetInterruptOutputType(byte value)
+        {
+            CheckConnected();
+
+            switch (value)
+            {
+                case 0:
+                    config = helper.UpdateByte(config, 2, false);
+                    helper.WriteI2CByte(i2cbus, IOCON, config);
+                    break;
+                case 1:
+                    config = helper.UpdateByte(config, 2, true);
+                    helper.WriteI2CByte(i2cbus, IOCON, config);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(value));
+            }
+        }
+
+        /// <summary>
         ///     Sets the type of interrupt for each pin on the selected <paramref name="port"/>.
         ///     1 = interrupt is fired when the pin matches the default value.
         ///     0 = the interrupt is fired on state change.
