@@ -260,6 +260,29 @@ namespace ABElectronics_Win10IOT_Libraries
         }
 
         /// <summary>
+        ///     get the direction of an individual <paramref name="pin"/>.
+        /// </summary>
+        /// <param name="pin">1 - 16</param>
+        /// <returns>0 = logic level low, 1 = logic level high</returns>
+        public bool GetPinDirection(byte pin)
+        {
+            CheckConnected();
+
+            pin = (byte)(pin - 1);
+            if (pin < 8)
+            {
+                port_a_dir = helper.ReadI2CByte(i2cbus, IODIRA);
+                return helper.CheckBit(port_a_dir, pin);
+            }
+            if (pin >= 8 && pin < 16)
+            {
+                port_b_dir = helper.ReadI2CByte(i2cbus, IODIRB);
+                return helper.CheckBit(port_b_dir, (byte)(pin - 8));
+            }
+            throw new ArgumentOutOfRangeException(nameof(pin));
+        }
+
+        /// <summary>
         ///     Set the <paramref name="direction"/> for an IO <paramref name="port"/>.
         ///     You can control the direction of all 8 pins on a port by sending a single byte value.
         ///     Each bit in the byte represents one pin so for example 0x0A would set pins 2 and 4 to
@@ -286,6 +309,8 @@ namespace ABElectronics_Win10IOT_Libraries
             }
         }
 
+
+
         /// <summary>
         ///     Set the internal 100K pull-up resistors for an individual pin.
         /// </summary>
@@ -311,6 +336,29 @@ namespace ABElectronics_Win10IOT_Libraries
             {
                 throw new ArgumentOutOfRangeException(nameof(pin));
             }
+        }
+
+        /// <summary>
+        ///     get the pull-up status of an individual <paramref name="pin"/>.
+        /// </summary>
+        /// <param name="pin">1 - 16</param>
+        /// <returns>0 = logic level low, 1 = logic level high</returns>
+        public bool GetPinPullUp(byte pin)
+        {
+            CheckConnected();
+
+            pin = (byte)(pin - 1);
+            if (pin < 8)
+            {
+                porta_pullup = helper.ReadI2CByte(i2cbus, GPPUA);
+                return helper.CheckBit(porta_pullup, pin);
+            }
+            if (pin >= 8 && pin < 16)
+            {
+                portb_pullup = helper.ReadI2CByte(i2cbus, GPPUB);
+                return helper.CheckBit(portb_pullup, (byte)(pin - 8));
+            }
+            throw new ArgumentOutOfRangeException(nameof(pin));
         }
 
         /// <summary>
@@ -711,7 +759,19 @@ namespace ABElectronics_Win10IOT_Libraries
             }
         }
 
-        
+        /// <summary>
+        ///     get the value of a <paramref name="register"/> from the MCP23017.
+        /// </summary>
+        /// <param name="register">0 to 255</param>
+        /// <returns>Register Value</returns>
+        public byte GetRegister(byte register)
+        {
+            CheckConnected();
+
+            return helper.ReadI2CByte(i2cbus, register);
+        }
+
+
         /// <summary>
         ///     Dispose of the resources
         /// </summary>

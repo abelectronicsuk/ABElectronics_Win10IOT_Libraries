@@ -16547,7 +16547,7 @@ namespace McgInterop
 				}, 
 				// Index = 1
 				new global::System.Runtime.InteropServices.CCWTemplateData() {
-					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.ADCDACPi, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")), // hashcode: 13689365
+					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.ADCDACPi, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")), // hashcode: 13689365
 					SupportedInterfaceListBeginIndex = 1,
 					NumberOfSupportedInterface = 2,
 					ParentCCWTemplateIndex = 2,
@@ -16609,7 +16609,7 @@ namespace McgInterop
 				}, 
 				// Index = 8
 				new global::System.Runtime.InteropServices.CCWTemplateData() {
-					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.ADCPi, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")), // hashcode: df2d2b1b
+					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.ADCPi, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")), // hashcode: df2d2b1b
 					SupportedInterfaceListBeginIndex = 1,
 					NumberOfSupportedInterface = 2,
 					ParentCCWTemplateIndex = 2,
@@ -16617,7 +16617,7 @@ namespace McgInterop
 				}, 
 				// Index = 9
 				new global::System.Runtime.InteropServices.CCWTemplateData() {
-					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.App, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")), // hashcode: 82a469bb
+					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.App, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")), // hashcode: 82a469bb
 					SupportedInterfaceListBeginIndex = 27,
 					NumberOfSupportedInterface = 2,
 					ParentCCWTemplateIndex = 10,
@@ -16634,7 +16634,7 @@ namespace McgInterop
 				}, 
 				// Index = 11
 				new global::System.Runtime.InteropServices.CCWTemplateData() {
-					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.DemoApplication_XamlTypeInfo.XamlUserType, DemoApplication, Version=1.0.6509.22482, Culture=neut" +
+					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.DemoApplication_XamlTypeInfo.XamlUserType, DemoApplication, Version=1.0.6516.18527, Culture=neut" +
 								"ral, PublicKeyToken=null")), // hashcode: 4f028f62
 					SupportedInterfaceListBeginIndex = 34,
 					NumberOfSupportedInterface = 0,
@@ -16643,7 +16643,7 @@ namespace McgInterop
 				}, 
 				// Index = 12
 				new global::System.Runtime.InteropServices.CCWTemplateData() {
-					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.DemoApplication_XamlTypeInfo.XamlSystemBaseType, DemoApplication, Version=1.0.6509.22482, Cultur" +
+					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.DemoApplication_XamlTypeInfo.XamlSystemBaseType, DemoApplication, Version=1.0.6516.18527, Cultur" +
 								"e=neutral, PublicKeyToken=null")), // hashcode: 6e451250
 					SupportedInterfaceListBeginIndex = 34,
 					NumberOfSupportedInterface = 1,
@@ -16652,7 +16652,7 @@ namespace McgInterop
 				}, 
 				// Index = 13
 				new global::System.Runtime.InteropServices.CCWTemplateData() {
-					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.ADCDifferentialPi, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null" +
+					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.ADCDifferentialPi, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null" +
 								"")), // hashcode: 02c96a5e
 					SupportedInterfaceListBeginIndex = 1,
 					NumberOfSupportedInterface = 2,
@@ -16661,7 +16661,7 @@ namespace McgInterop
 				}, 
 				// Index = 14
 				new global::System.Runtime.InteropServices.CCWTemplateData() {
-					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.ExpanderPi, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")), // hashcode: b2d028eb
+					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.ExpanderPi, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")), // hashcode: b2d028eb
 					SupportedInterfaceListBeginIndex = 1,
 					NumberOfSupportedInterface = 2,
 					ParentCCWTemplateIndex = 2,
@@ -16669,7 +16669,7 @@ namespace McgInterop
 				}, 
 				// Index = 15
 				new global::System.Runtime.InteropServices.CCWTemplateData() {
-					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.IOPi, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")), // hashcode: fa6a69c6
+					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.IOPi, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")), // hashcode: fa6a69c6
 					SupportedInterfaceListBeginIndex = 1,
 					NumberOfSupportedInterface = 2,
 					ParentCCWTemplateIndex = 2,
@@ -16677,7 +16677,7 @@ namespace McgInterop
 				}, 
 				// Index = 16
 				new global::System.Runtime.InteropServices.CCWTemplateData() {
-					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.MainPage, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")), // hashcode: 3cc6fd06
+					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.MainPage, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")), // hashcode: 3cc6fd06
 					SupportedInterfaceListBeginIndex = 1,
 					NumberOfSupportedInterface = 2,
 					ParentCCWTemplateIndex = 2,
@@ -16685,7 +16685,7 @@ namespace McgInterop
 				}, 
 				// Index = 17
 				new global::System.Runtime.InteropServices.CCWTemplateData() {
-					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.RTCPi, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")), // hashcode: dfea3716
+					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.RTCPi, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")), // hashcode: dfea3716
 					SupportedInterfaceListBeginIndex = 1,
 					NumberOfSupportedInterface = 2,
 					ParentCCWTemplateIndex = 2,
@@ -16693,7 +16693,7 @@ namespace McgInterop
 				}, 
 				// Index = 18
 				new global::System.Runtime.InteropServices.CCWTemplateData() {
-					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.ServoPi, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")), // hashcode: d066c157
+					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.ServoPi, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")), // hashcode: d066c157
 					SupportedInterfaceListBeginIndex = 1,
 					NumberOfSupportedInterface = 2,
 					ParentCCWTemplateIndex = 2,
@@ -16701,7 +16701,7 @@ namespace McgInterop
 				}, 
 				// Index = 19
 				new global::System.Runtime.InteropServices.CCWTemplateData() {
-					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.DemoApplication_XamlTypeInfo.XamlMember, DemoApplication, Version=1.0.6509.22482, Culture=neutra" +
+					FixupClassType = new global::Internal.Runtime.CompilerServices.FixupRuntimeTypeHandle(global::System.Runtime.InteropServices.TypeOfHelper.RuntimeTypeHandleOf("DemoApplication.DemoApplication_XamlTypeInfo.XamlMember, DemoApplication, Version=1.0.6516.18527, Culture=neutra" +
 								"l, PublicKeyToken=null")), // hashcode: 40f046d2
 					SupportedInterfaceListBeginIndex = 35,
 					NumberOfSupportedInterface = 1,
@@ -23392,7 +23392,7 @@ namespace McgInterop
 					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 			[global::System.Runtime.CompilerServices.TypeHandleFixup(0, "System.Runtime.InteropServices.WindowsRuntime.CustomPropertyImpl, System.Private.Interop, Version=4.0.0.0, Cultu" +
 				"re=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-			[global::System.Runtime.CompilerServices.TypeHandleFixup(24, "DemoApplication.ADCDACPi, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")]
+			[global::System.Runtime.CompilerServices.TypeHandleFixup(24, "DemoApplication.ADCDACPi, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")]
 			[global::System.Runtime.CompilerServices.TypeHandleFixup(48, "Windows.UI.Xaml.Controls.Page, Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentTy" +
 				"pe=WindowsRuntime")]
 			[global::System.Runtime.CompilerServices.TypeHandleFixup(72, "Windows.UI.Xaml.Controls.UserControl, Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, Co" +
@@ -23405,22 +23405,22 @@ namespace McgInterop
 				"indowsRuntime")]
 			[global::System.Runtime.CompilerServices.TypeHandleFixup(168, "Windows.UI.Xaml.DependencyObject, Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, Conten" +
 				"tType=WindowsRuntime")]
-			[global::System.Runtime.CompilerServices.TypeHandleFixup(192, "DemoApplication.ADCPi, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")]
-			[global::System.Runtime.CompilerServices.TypeHandleFixup(216, "DemoApplication.App, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")]
+			[global::System.Runtime.CompilerServices.TypeHandleFixup(192, "DemoApplication.ADCPi, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")]
+			[global::System.Runtime.CompilerServices.TypeHandleFixup(216, "DemoApplication.App, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")]
 			[global::System.Runtime.CompilerServices.TypeHandleFixup(240, "Windows.UI.Xaml.Application, Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType" +
 				"=WindowsRuntime")]
-			[global::System.Runtime.CompilerServices.TypeHandleFixup(264, "DemoApplication.DemoApplication_XamlTypeInfo.XamlUserType, DemoApplication, Version=1.0.6509.22482, Culture=neut" +
+			[global::System.Runtime.CompilerServices.TypeHandleFixup(264, "DemoApplication.DemoApplication_XamlTypeInfo.XamlUserType, DemoApplication, Version=1.0.6516.18527, Culture=neut" +
 				"ral, PublicKeyToken=null")]
-			[global::System.Runtime.CompilerServices.TypeHandleFixup(288, "DemoApplication.DemoApplication_XamlTypeInfo.XamlSystemBaseType, DemoApplication, Version=1.0.6509.22482, Cultur" +
+			[global::System.Runtime.CompilerServices.TypeHandleFixup(288, "DemoApplication.DemoApplication_XamlTypeInfo.XamlSystemBaseType, DemoApplication, Version=1.0.6516.18527, Cultur" +
 				"e=neutral, PublicKeyToken=null")]
-			[global::System.Runtime.CompilerServices.TypeHandleFixup(312, "DemoApplication.ADCDifferentialPi, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null" +
+			[global::System.Runtime.CompilerServices.TypeHandleFixup(312, "DemoApplication.ADCDifferentialPi, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null" +
 				"")]
-			[global::System.Runtime.CompilerServices.TypeHandleFixup(336, "DemoApplication.ExpanderPi, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")]
-			[global::System.Runtime.CompilerServices.TypeHandleFixup(360, "DemoApplication.IOPi, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")]
-			[global::System.Runtime.CompilerServices.TypeHandleFixup(384, "DemoApplication.MainPage, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")]
-			[global::System.Runtime.CompilerServices.TypeHandleFixup(408, "DemoApplication.RTCPi, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")]
-			[global::System.Runtime.CompilerServices.TypeHandleFixup(432, "DemoApplication.ServoPi, DemoApplication, Version=1.0.6509.22482, Culture=neutral, PublicKeyToken=null")]
-			[global::System.Runtime.CompilerServices.TypeHandleFixup(456, "DemoApplication.DemoApplication_XamlTypeInfo.XamlMember, DemoApplication, Version=1.0.6509.22482, Culture=neutra" +
+			[global::System.Runtime.CompilerServices.TypeHandleFixup(336, "DemoApplication.ExpanderPi, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")]
+			[global::System.Runtime.CompilerServices.TypeHandleFixup(360, "DemoApplication.IOPi, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")]
+			[global::System.Runtime.CompilerServices.TypeHandleFixup(384, "DemoApplication.MainPage, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")]
+			[global::System.Runtime.CompilerServices.TypeHandleFixup(408, "DemoApplication.RTCPi, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")]
+			[global::System.Runtime.CompilerServices.TypeHandleFixup(432, "DemoApplication.ServoPi, DemoApplication, Version=1.0.6516.18527, Culture=neutral, PublicKeyToken=null")]
+			[global::System.Runtime.CompilerServices.TypeHandleFixup(456, "DemoApplication.DemoApplication_XamlTypeInfo.XamlMember, DemoApplication, Version=1.0.6516.18527, Culture=neutra" +
 				"l, PublicKeyToken=null")]
 			[global::System.Runtime.CompilerServices.TypeHandleFixup(480, "System.Runtime.InteropServices.SafeHandle, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyTo" +
 				"ken=b03f5f7f11d50a3a")]
