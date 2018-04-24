@@ -19,8 +19,7 @@ The library is available from [NuGet](https://www.nuget.org/packages/ABElectroni
 <https://www.abelectronics.co.uk/products/3/Raspberry-Pi/39/ADC-DAC-Pi-Raspberry-Pi-ADC-and-DAC-expansion-board>
 
 ### ADC Pi, ADC Pi Zero and ADC Pi Plus ###
-- RP Pi Zero: <https://www.abelectronics.co.uk/p/69/ADC-Pi-Zero-Raspberry-Pi-Analogue-to-Digital-converter>*
-- RP A+, B+, 2 & 3: <https://www.abelectronics.co.uk/p/56/ADC-Pi-Plus-Raspberry-Pi-Analogue-to-Digital-converter>
+- RP A+, B+, 2, 3 & Zero: <https://www.abelectronics.co.uk/p/69/ADC-Pi-Raspberry-Pi-Analogue-to-Digital-converter>
 
 ### Delta Sigma Pi and ADC Differential Pi ###
 - RP A+, B+, 2 & 3: <https://www.abelectronics.co.uk/p/65/ADC-Differential-Pi-Raspberry-Pi-Analogue-to-Digital-converter>
