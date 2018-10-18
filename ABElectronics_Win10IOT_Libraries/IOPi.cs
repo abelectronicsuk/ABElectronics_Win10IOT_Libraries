@@ -516,12 +516,12 @@ namespace ABElectronics_Win10IOT_Libraries
             pin = (byte) (pin - 1);
             if (pin < 8)
             {
-                porta_polarity = helper.UpdateByte(portaval, pin, polarity);
+                porta_polarity = helper.UpdateByte(porta_polarity, pin, polarity);
                 helper.WriteI2CByte(i2cbus, IPOLA, porta_polarity);
             }
             else if (pin >= 8 && pin < 16)
             {
-                portb_polarity = helper.UpdateByte(portbval, (byte) (pin - 8), polarity);
+                portb_polarity = helper.UpdateByte(portb_polarity, (byte) (pin - 8), polarity);
                 helper.WriteI2CByte(i2cbus, IPOLB, portb_polarity);
             }
             else
