@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<package >
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
-    <id>abelectronics.win10iot.libraries</id>
-    <version>1.2.0</version>
+    <id>ABElectronics_Win10IOT_Libraries</id>
+    <version>1.2.6866.16968</version>
     <title>AB Electronics UK Windows 10 IOT .net class libraries</title>
     <authors>AB Electronics UK</authors>
     <owners>AB Electronics UK</owners>
@@ -10,8 +10,11 @@
     <projectUrl>https://github.com/abelectronicsuk/ABElectronics_Win10IOT_Libraries</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Windows 10 IOT .net class libraries for the Raspberry Pi expansion boards from AB Electronics UK</description>
-    <releaseNotes>Added Expander Pi class</releaseNotes>
-    <copyright>Copyright 2017</copyright>
+    <releaseNotes>Bug fix for IO Pi class: InvertPin(...) was using wrong "shadow register"</releaseNotes>
+    <copyright>Copyright 2018</copyright>
     <tags>raspberry pi adc dac servo io pi rtc expander</tags>
   </metadata>
+  <files>
+          <file src="README.md" target="" />  
+    </files>
 </package>

@@ -749,6 +749,13 @@
             <param name="pin">1 to 16</param>
             <param name="direction">true = input, false = output</param>
         </member>
+        <member name="M:ABElectronics_Win10IOT_Libraries.IOPi.GetPinDirection(System.Byte)">
+            <summary>
+                get the direction of an individual <paramref name="pin"/>.
+            </summary>
+            <param name="pin">1 - 16</param>
+            <returns>0 = logic level low, 1 = logic level high</returns>
+        </member>
         <member name="M:ABElectronics_Win10IOT_Libraries.IOPi.SetPortDirection(System.Byte,System.Byte)">
             <summary>
                 Set the <paramref name="direction"/> for an IO <paramref name="port"/>.
@@ -765,6 +772,13 @@
             </summary>
             <param name="pin">1 to 16</param>
             <param name="value">true = enabled, false = disabled</param>
+        </member>
+        <member name="M:ABElectronics_Win10IOT_Libraries.IOPi.GetPinPullUp(System.Byte)">
+            <summary>
+                get the pull-up status of an individual <paramref name="pin"/>.
+            </summary>
+            <param name="pin">1 - 16</param>
+            <returns>0 = logic level low, 1 = logic level high</returns>
         </member>
         <member name="M:ABElectronics_Win10IOT_Libraries.IOPi.SetPortPullups(System.Byte,System.Byte)">
             <summary>
@@ -886,6 +900,13 @@
             <summary>
                 Reset the interrupts A and B to 0.
             </summary>
+        </member>
+        <member name="M:ABElectronics_Win10IOT_Libraries.IOPi.GetRegister(System.Byte)">
+            <summary>
+                get the value of a <paramref name="register"/> from the MCP23017.
+            </summary>
+            <param name="register">0 to 255</param>
+            <returns>Register Value</returns>
         </member>
         <member name="M:ABElectronics_Win10IOT_Libraries.IOPi.Dispose">
             <summary>
