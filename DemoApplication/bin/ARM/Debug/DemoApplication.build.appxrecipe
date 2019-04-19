@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>AND</Machine>
+    <Machine>WIN10</Machine>
     <WindowsUser>andrew</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
@@ -10,22 +10,22 @@
     <PackageArchitecture>arm</PackageArchitecture>
     <PackageIdentityName>9d80886e-7a4e-4ed2-b4e5-cb8192758a46</PackageIdentityName>
     <PackageIdentityPublisher>CN=andrew</PackageIdentityPublisher>
-    <IntermediateOutputPath>D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\obj\ARM\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\obj\ARM\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\bin\ARM\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\bin\ARM\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\bin\ARM\Debug\DemoApplication.exe">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\DemoApplication.exe">
       <PackagePath>entrypoint\DemoApplication.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\andrew\.nuget\packages\microsoft.applicationinsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
@@ -346,123 +346,149 @@
     <AppxPackagedFile Include="C:\Users\andrew\.nuget\packages\system.xml.xmlserializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\ABElectronics_Win10IOT_Libraries\bin\Debug\ABElectronics_Win10IOT_Libraries.dll">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\ABElectronics_Win10IOT_Libraries\bin\Debug\ABElectronics_Win10IOT_Libraries.dll">
       <PackagePath>ABElectronics_Win10IOT_Libraries.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\Assets\adcdacpi.png">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\Assets\adcdacpi.png">
       <PackagePath>Assets\adcdacpi.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\Assets\adcdifferentialpi.png">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\Assets\adcdifferentialpi.png">
       <PackagePath>Assets\adcdifferentialpi.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\Assets\adcpiplus.png">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\Assets\adcpiplus.png">
       <PackagePath>Assets\adcpiplus.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\Assets\deltasigmapi.png">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\Assets\deltasigmapi.png">
       <PackagePath>Assets\deltasigmapi.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\Assets\expanderpi.png">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\Assets\expanderpi.png">
       <PackagePath>Assets\expanderpi.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\Assets\iopiplus.png">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\Assets\iopiplus.png">
       <PackagePath>Assets\iopiplus.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\Assets\rtcpiplus.png">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\Assets\rtcpiplus.png">
       <PackagePath>Assets\rtcpiplus.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\Assets\servopi.png">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\Assets\servopi.png">
       <PackagePath>Assets\servopi.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\Assets\WideLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\Assets\WideLogo.scale-100.png">
       <PackagePath>Assets\WideLogo.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\bin\ARM\Debug\DemoApplication.xr.xml">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\DemoApplication.xr.xml">
       <PackagePath>DemoApplication.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\ADCDACPi.xbf">
+      <PackagePath>ADCDACPi.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\ADCPi.xbf">
+      <PackagePath>ADCPi.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\ADCDifferentialPi.xbf">
+      <PackagePath>ADCDifferentialPi.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\ExpanderPi.xbf">
+      <PackagePath>ExpanderPi.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\IOPi.xbf">
+      <PackagePath>IOPi.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\RTCPi.xbf">
+      <PackagePath>RTCPi.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\ServoPi.xbf">
+      <PackagePath>ServoPi.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\bin\ARM\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\AB Electronics\Software\Libraries\ABElectronics_Win10IOT_Libraries\DemoApplication\bin\ARM\Debug\Core\DemoApplication.exe">
+    <AppxPackagedFile Include="C:\Users\andrew\Documents\ABElectronics_Win10IOT_Libraries-master\DemoApplication\bin\ARM\Debug\Core\DemoApplication.exe">
       <PackagePath>DemoApplication.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.NET.CoreRuntime\1.1\">
       <Name>Microsoft.NET.CoreRuntime.1.1</Name>
-      <Version>1.1.25305.1</Version>
+      <Version>1.1.27004.0</Version>
       <Architecture>ARM</Architecture>
-      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.1.1, MinVersion = 1.1.25305.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.1.1, MinVersion = 1.1.27004.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.NET.CoreRuntime\1.1\.\AppX\ARM\Microsoft.NET.CoreRuntime.1.1.appx</AppxLocation>
       <MoreInfo></MoreInfo>
     </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.NET.CoreRuntime\1.1\">
       <Name>Microsoft.NET.CoreRuntime.1.1</Name>
-      <Version>1.1.25305.1</Version>
+      <Version>1.1.27004.0</Version>
       <Architecture>x64</Architecture>
-      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.1.1, MinVersion = 1.1.25305.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.1.1, MinVersion = 1.1.27004.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.NET.CoreRuntime\1.1\.\AppX\x64\Microsoft.NET.CoreRuntime.1.1.appx</AppxLocation>
       <MoreInfo></MoreInfo>
     </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.NET.CoreRuntime\1.1\">
       <Name>Microsoft.NET.CoreRuntime.1.1</Name>
-      <Version>1.1.25305.1</Version>
+      <Version>1.1.27004.0</Version>
       <Architecture>x86</Architecture>
-      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.1.1, MinVersion = 1.1.25305.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.1.1, MinVersion = 1.1.27004.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.NET.CoreRuntime\1.1\.\AppX\x86\Microsoft.NET.CoreRuntime.1.1.appx</AppxLocation>
       <MoreInfo></MoreInfo>
     </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
       <Name>Microsoft.VCLibs.140.00.Debug</Name>
-      <Version>14.0.25547.0</Version>
+      <Version>14.0.27023.1</Version>
       <Architecture>ARM</Architecture>
-      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.25547.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.27023.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM\Microsoft.VCLibs.ARM.Debug.14.00.appx</AppxLocation>
       <MoreInfo></MoreInfo>
     </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
       <Name>Microsoft.VCLibs.140.00.Debug</Name>
-      <Version>14.0.25547.0</Version>
+      <Version>14.0.27023.1</Version>
       <Architecture>ARM64</Architecture>
-      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.25547.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.27023.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM64\Microsoft.VCLibs.ARM64.Debug.14.00.appx</AppxLocation>
       <MoreInfo></MoreInfo>
     </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
       <Name>Microsoft.VCLibs.140.00.Debug</Name>
-      <Version>14.0.25547.0</Version>
+      <Version>14.0.27023.1</Version>
       <Architecture>x64</Architecture>
-      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.25547.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.27023.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x64\Microsoft.VCLibs.x64.Debug.14.00.appx</AppxLocation>
       <MoreInfo></MoreInfo>
     </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
       <Name>Microsoft.VCLibs.140.00.Debug</Name>
-      <Version>14.0.25547.0</Version>
+      <Version>14.0.27023.1</Version>
       <Architecture>x86</Architecture>
-      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.25547.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.27023.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x86\Microsoft.VCLibs.x86.Debug.14.00.appx</AppxLocation>
       <MoreInfo></MoreInfo>
     </ResolvedSDKReference>

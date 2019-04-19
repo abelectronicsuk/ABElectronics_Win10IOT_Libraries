@@ -537,7 +537,7 @@ namespace McgInterop
 	public unsafe static partial class api_ms_win_core_errorhandling_l1_1_0_dll_PInvokes
 	{
 		[global::McgInterop.McgGeneratedNativeCallCode]
-		[global::System.Runtime.InteropServices.DllImport("api-ms-win-core-errorhandling-l1-1-1.dll", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Winapi)]
+		[global::System.Runtime.InteropServices.DllImport("api-ms-win-core-errorhandling-l1-1-0.dll", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Winapi)]
 		public extern static int GetLastError();
 	}
 
@@ -558,18 +558,18 @@ namespace McgInterop
 	public unsafe static partial class api_ms_win_core_localization_l1_2_0_dll_PInvokes
 	{
 		[global::McgInterop.McgGeneratedNativeCallCode]
-		[global::System.Runtime.InteropServices.DllImport("api-ms-win-core-localization-l1-2-1.dll", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Winapi)]
+		[global::System.Runtime.InteropServices.DllImport("api-ms-win-core-localization-l1-2-0.dll", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Winapi)]
 		public extern static int IsValidLocaleName(ushort* lpLocaleName);
 
 		[global::McgInterop.McgGeneratedNativeCallCode]
-		[global::System.Runtime.InteropServices.DllImport("api-ms-win-core-localization-l1-2-1.dll", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Winapi)]
+		[global::System.Runtime.InteropServices.DllImport("api-ms-win-core-localization-l1-2-0.dll", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Winapi)]
 		public extern static int ResolveLocaleName(
 					ushort* lpNameToResolve, 
 					ushort* lpLocaleName, 
 					int cchLocaleName);
 
 		[global::McgInterop.McgGeneratedNativeCallCode]
-		[global::System.Runtime.InteropServices.DllImport("api-ms-win-core-localization-l1-2-1.dll", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Winapi)]
+		[global::System.Runtime.InteropServices.DllImport("api-ms-win-core-localization-l1-2-0.dll", CallingConvention=global::System.Runtime.InteropServices.CallingConvention.Winapi)]
 		public extern static int GetCPInfoExW(
 					uint CodePage, 
 					uint dwFlags, 

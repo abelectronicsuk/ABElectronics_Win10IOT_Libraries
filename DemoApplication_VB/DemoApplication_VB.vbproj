@@ -16,7 +16,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
     <PackageCertificateKeyFile>DemoApplication_VB_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>506A2A005D4D898A0F64F5A3DEB28D0E0445E45F</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>479EF60B14AE29004BAC7CF2E0CBAD11C2BD917E</PackageCertificateThumbprint>
     <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
