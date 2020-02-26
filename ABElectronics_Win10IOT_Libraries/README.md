@@ -3,10 +3,6 @@ AB Electronics Windows 10 IOT Libraries
 
 Windows 10 IOT Library to use with Raspberry Pi expansion boards from https://www.abelectronics.co.uk
 
-Installation instructions for the Windows 10 IOT release are available on https://ms-iot.github.io/content/en-US/GetStarted.htm
-
-We have GitHub pages for this library with individual pages for each class and expansion board  and demo applications at http://abelectronicsuk.github.io/ABElectronics_Win10IOT_Libraries/
-
 The AB Electronics Windows 10 IOT Library contains the following classes:
 
 # ADCDACPi
