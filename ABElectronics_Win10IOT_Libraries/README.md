@@ -271,6 +271,8 @@ readvalue = adc.ReadVoltage(1);
 This class contains methods to use with the Expander Pi from
 https://www.abelectronics.co.uk/p/50/Expander-Pi
 
+**Note:** Microchip recommends that digital pins 8 (GPA7) and 16 (GPB7) are used as outputs only.  This change was made for revision D MCP23017 chips manufactured after June 2020. See the [MCP23017 datasheet](https://www.abelectronics.co.uk/docs/pdf/microchip-mcp23017.pdf) for more information.
+
 ## Methods
 ```
 Connect() 
@@ -534,6 +536,8 @@ bool value = bus1.IOReadPin(1);
 This class contains methods for use with the IO Pi, IO Pi Plus and IO Pi Zero from  
 https://www.abelectronics.co.uk/p/54/IO-Pi-Plus  
 https://www.abelectronics.co.uk/p/71/IO-Pi-Zero  
+
+**Note:** Microchip recommends that pin 8 (GPA7) and pin 16 (GPB7) are used as outputs only.  This change was made for revision D MCP23017 chips manufactured after June 2020. See the [MCP23017 datasheet](https://www.abelectronics.co.uk/docs/pdf/microchip-mcp23017.pdf) for more information.
 
 ## Methods:
 ```
